@@ -1,0 +1,9 @@
+{
+  "label": "Admin User",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "title": "Admin User Documentation",
+    "description": "Admin User Documentation"
+  }
+}

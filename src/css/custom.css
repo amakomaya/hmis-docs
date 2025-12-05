@@ -1,0 +1,35 @@
+/* Apple-inspired minimal palette */
+:root {
+  --ifm-color-primary: #0071e3;         /* subtle Apple-like blue */
+  --ifm-color-primary-dark: #005bb5;
+  --ifm-color-primary-darker: #004a91;
+  --ifm-color-primary-darkest: #003770;
+  --ifm-color-primary-light: #3399ff;
+  --ifm-color-primary-lighter: #66b3ff;
+  --ifm-color-primary-lightest: #cce6ff;
+
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.05);
+
+  --ifm-color-background: #f9f9f9;
+  --ifm-color-background-secondary: #ffffff;
+  --ifm-color-text: #1d1d1f;
+  --ifm-color-text-secondary: #3c3c3c;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #0a84ff;         /* bright soft blue for dark mode */
+  --ifm-color-primary-dark: #006fd6;
+  --ifm-color-primary-darker: #005bb5;
+  --ifm-color-primary-darkest: #004a91;
+  --ifm-color-primary-light: #3399ff;
+  --ifm-color-primary-lighter: #66b3ff;
+  --ifm-color-primary-lightest: #99ccff;
+
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.05);
+
+  --ifm-color-background: #1c1c1e;
+  --ifm-color-background-secondary: #2c2c2e;
+  --ifm-color-text: #f5f5f7;
+  --ifm-color-text-secondary: #d1d1d6;
+}
