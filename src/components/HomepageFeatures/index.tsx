@@ -12,7 +12,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Comprehensive Patient Records',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/sample.svg').default,
     description: (
       <>
         Store and manage complete electronic patient records, including visits,
@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Focus on Patient Care',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/sample.svg').default,
     description: (
       <>
         DHIS2 EHMIS helps you focus on quality patient care while the system
@@ -32,7 +32,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'EHMIS Documents',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/sample.svg').default,
     description: (
       <>
         Access, manage, and share electronic health documents securely. Keep all
@@ -42,7 +42,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Real-time Analytics',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/sample.svg').default,
     description: (
       <>
         Track health indicators and monitor program performance in real-time
@@ -52,7 +52,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Secure & Compliant',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/sample.svg').default,
     description: (
       <>
         Protect sensitive health information with robust security measures,
