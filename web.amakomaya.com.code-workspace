@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "../web.amakomaya.com"
+		},
+		{
+			"path": "../ig-fhir-amakomaya"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../map.amakomaya.com"
+		},
+		{
+			"path": "../openfn-ehmis"
+		},
+		{
+			"path": "../dashboard"
+		},
+		{
+			"path": "../identity.amakomaya.com"
+		},
+		{
+			"path": "../ig-fhir-ihmis"
+		}
+	],
+	"settings": {}
+}
