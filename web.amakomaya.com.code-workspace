@@ -23,7 +23,15 @@
 		},
 		{
 			"path": "../ig-fhir-ihmis"
+		},
+		{
+			"path": "../conference"
+		},
+		{
+			"path": "../metadata"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "conference"
+	}
 }
