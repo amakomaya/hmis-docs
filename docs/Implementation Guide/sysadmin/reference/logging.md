@@ -65,7 +65,7 @@ DHIS2 will provide the following context values:
 To use the context variables in the log add them using `-X{<name>}` to your log
 pattern as in this example:
 
-    * %-5p %d{ISO8601} %m (%F [%t]) %X{sessionId} %X{xRequestID}%n
+    * %-5p %d ISO8601 %m (%F [%t]) %X sessionId %X xRequestID %n
 
 ## Log level configuration
 
