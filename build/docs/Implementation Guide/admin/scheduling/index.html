@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Implementation Guide/admin/scheduling" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Scheduling | EHMIS Nepal</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.hispnp.org/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.hispnp.org/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.hispnp.org/docs/Implementation Guide/admin/scheduling"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Scheduling | EHMIS Nepal"><meta data-rh="true" name="description" content="The Scheduler is an application for managing background jobs in DHIS2."><meta data-rh="true" property="og:description" content="The Scheduler is an application for managing background jobs in DHIS2."><link data-rh="true" rel="icon" href="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg"><link data-rh="true" rel="canonical" href="https://docs.hispnp.org/docs/Implementation Guide/admin/scheduling"><link data-rh="true" rel="alternate" href="https://docs.hispnp.org/docs/Implementation Guide/admin/scheduling" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.hispnp.org/docs/Implementation Guide/admin/scheduling" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Admin User","item":"https://docs.hispnp.org/docs/category/admin-user"},{"@type":"ListItem","position":2,"name":"Scheduling","item":"https://docs.hispnp.org/docs/Implementation Guide/admin/scheduling"}]}</script><link rel="stylesheet" href="/assets/css/styles.ed364f4f.css">
+<script src="/assets/js/runtime~main.012f789d.js" defer="defer"></script>
+<script src="/assets/js/main.8f76942d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg" alt="EHIMS" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg" alt="EHIMS" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">EHIMS</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/intro">Docs  </a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro"><span title="DHIS2 EHMIS Documentation" class="linkLabel_WmDU">DHIS2 EHMIS Documentation</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/category/admin-user"><span title="Implementation Guide" class="categoryLinkLabel_W154">Implementation Guide</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/docs/category/admin-user"><span title="Admin User" class="categoryLinkLabel_W154">Admin User</span></a><button aria-label="Collapse sidebar category &#x27;Admin User&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/about-data-dimensions"><span title="About data dimensions" class="linkLabel_WmDU">About data dimensions</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/about-demo-server-live-package-and-database-design"><span title="About demo server, D2 cluster and database design" class="linkLabel_WmDU">About demo server, D2 cluster and database design</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/about-sharing-of-objects"><span title="About Sharing of Objects" class="linkLabel_WmDU">About Sharing of Objects</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/additional-data-dimensions"><span title="Additional Data Dimensions" class="linkLabel_WmDU">Additional Data Dimensions</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/analyze-data-in-pivot-tables"><span title="Analyze data in pivot tables" class="linkLabel_WmDU">Analyze data in pivot tables</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/classic-data-visualizer"><span title="Data Visualizer" class="linkLabel_WmDU">Data Visualizer</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/command-palette"><span title="Command Palette" class="linkLabel_WmDU">Command Palette</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/configure-metadata-synchronizing"><span title="Configure metadata synchronizing" class="linkLabel_WmDU">Configure metadata synchronizing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/configure-metadata"><span title="Configure metadata" class="linkLabel_WmDU">Configure metadata</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/data-administration"><span title="Data Administration" class="linkLabel_WmDU">Data Administration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/data-approval"><span title="Data approval overview" class="linkLabel_WmDU">Data approval overview</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/data-exchange"><span title="Using the Data Exchange app" class="linkLabel_WmDU">Using the Data Exchange app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/datastore-management"><span title="Datastore Management App" class="linkLabel_WmDU">Datastore Management App</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/dhis2-frequently-asked-questions"><span title="DHIS2 Frequently Asked Questions" class="linkLabel_WmDU">DHIS2 Frequently Asked Questions</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/dhis2-glossary"><span title="DHIS2 Glossary" class="linkLabel_WmDU">DHIS2 Glossary</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/dhis2-tutorials"><span title="DHIS2 Tutorials" class="linkLabel_WmDU">DHIS2 Tutorials</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/getting-started-help-to-navigate-the-user-guide"><span title="Getting started - help to navigate the user guide" class="linkLabel_WmDU">Getting started - help to navigate the user guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/importexport-app"><span title="Import/Export App" class="linkLabel_WmDU">Import/Export App</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/"><span title="Use" class="linkLabel_WmDU">Use</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/login-flow"><span title="DHIS2 Login Flow with Email 2FA" class="linkLabel_WmDU">DHIS2 Login Flow with Email 2FA</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/manage-users-user-roles-and-user-groups"><span title="Manage users, user roles and user groups" class="linkLabel_WmDU">Manage users, user roles and user groups</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/messaging"><span title="Messaging" class="linkLabel_WmDU">Messaging</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/mobile"><span title="Mobile" class="linkLabel_WmDU">Mobile</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/personal-access-tokens"><span title="Personal access tokens" class="linkLabel_WmDU">Personal access tokens</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/relationship-model"><span title="Relationship model" class="linkLabel_WmDU">Relationship model</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/release-and-upgrade-notes"><span title="Release and upgrade notes" class="linkLabel_WmDU">Release and upgrade notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/Implementation Guide/admin/scheduling"><span title="Scheduling" class="linkLabel_WmDU">Scheduling</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/sms-configuration"><span title="Configuring SMS" class="linkLabel_WmDU">Configuring SMS</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/system-settings"><span title="System settings" class="linkLabel_WmDU">System settings</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/user-authorities"><span title="User authorities" class="linkLabel_WmDU">User authorities</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-reporting-functionality"><span title="Reporting functionality in the reports app" class="linkLabel_WmDU">Reporting functionality in the reports app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-the-event-capture-app"><span title="Using the Event Capture app" class="linkLabel_WmDU">Using the Event Capture app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-the-gis-app"><span title="Using the GIS app" class="linkLabel_WmDU">Using the GIS app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-the-tracker-capture-app"><span title="Using the Tracker Capture app" class="linkLabel_WmDU">Using the Tracker Capture app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/what-is-dhis2"><span title="What is DHIS2?" class="linkLabel_WmDU">What is DHIS2?</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/category/android"><span title="Android" class="categoryLinkLabel_W154">Android</span></a><button aria-label="Expand sidebar category &#x27;Android&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/Implementation Guide/metadata/about-metadata"><span title="metadata" class="categoryLinkLabel_W154">metadata</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/Implementation Guide/sysadmin/"><span title="Installation" class="categoryLinkLabel_W154">Installation</span></a><button aria-label="Expand sidebar category &#x27;Installation&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/User Operations Manual/Central Government/introduction"><span title="User Operations Manual" class="categoryLinkLabel_W154">User Operations Manual</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Implementation Guide</span></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/category/admin-user"><span>Admin User</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Scheduling</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Scheduling</h1></header>
+<p>The Scheduler is an application for managing background jobs in DHIS2.
+Background jobs can do a number of tasks, such as running analytics,
+synchronizing data and meta data, or sending a push analysis report. The
+application provides the ability to create, modify and delete such jobs.</p>
+<p>Jobs can be scheduled to run in a specific order with a job queue. A job queue
+consists of two or more jobs and can be scheduled according to a cron schedule.
+At the specified time the queue will start the first job and wait for it to
+finish before it starts the second job. It will continue running jobs in
+sequence until they have all been executed.</p>
+<p>The Scheduler comes bundled with DHIS2 and is accessed through the App Menu.</p>
+<p><img decoding="async" loading="lazy" alt="The start page of the Scheduler app" src="/assets/images/overview-fe83529bd14e117ead50df9214d28c72.png" width="1151" height="501" class="img_ev3q"></p>
+<p>The start page of the Scheduler app shows an overview of existing jobs and
+queues. By default, pre-defined system jobs are hidden. To view these, click
+<em>Include system jobs in list</em> in the top right corner.</p>
+<p>When you create or modify a job or queue, it will be scheduled according to the
+selected schedule. To run a job or queue on demand, go to the overview, click
+the &quot;Actions&quot; button of the job or queue you want to run and click &quot;Run
+manually&quot;. This action is only available for enabled jobs and queues.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="creating-a-job">Creating a job<a href="#creating-a-job" class="hash-link" aria-label="Direct link to Creating a job" title="Direct link to Creating a job" translate="no">​</a></h2>
+<ol>
+<li class="">
+<p>Open the <strong>Scheduler</strong> app and click the &quot;New job&quot; button in the top right
+corner.</p>
+</li>
+<li class="">
+<p>Choose a suitable <strong>Name</strong> for the new job.</p>
+</li>
+<li class="">
+<p>Select the <strong>Job type</strong> you want to schedule using the drop-down menu.</p>
+</li>
+<li class="">
+<p>Select a schedule for the job. Each job type has its own scheduling type,
+either <strong>Cron</strong> scheduling or <strong>Delay</strong> scheduling.</p>
+<ol>
+<li class="">
+<p>For <strong>Cron</strong> scheduled job types you can set a schedule using the
+<a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html" target="_blank" rel="noopener noreferrer" class="">Spring scheduling</a>
+syntax. You can also select a predefined <strong>Cron expression</strong> by clicking
+&quot;Choose from preset times&quot;. This schedule will only start a new job run
+if the previous job run has finished, to prevent the system from
+spawning too many jobs.</p>
+</li>
+<li class="">
+<p>For <strong>Delay</strong> scheduled jobs you can set a delay in seconds. Unlike the
+<strong>Cron</strong> scheduled jobs, these jobs aren&#x27;t executed according to a set
+schedule, but with a specific delay in between job runs. The delay timer
+starts when a job ends, starting a new job run when the delay timer
+reaches zero. This will continue as long as the job is enabled.</p>
+</li>
+</ol>
+</li>
+<li class="">
+<p>If the job type is customizable, a <strong>Parameters</strong> section will appear below
+the scheduling settings. These additional options specify the details of the
+scheduled job, and will vary depending on the job type.</p>
+</li>
+<li class="">
+<p>Press the <strong>Save</strong> button to confirm the job creation. On successful job
+creation you will be redirected to the job overview, where the newly created
+job will now be listed.</p>
+</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="Creating a new scheduler job" src="/assets/images/add_new_job-d165244636ae741c1ea8f724b5f6087c.png" width="1156" height="595" class="img_ev3q"></p>
+<p>Newly created jobs are enabled by default.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="editing-a-job">Editing a job<a href="#editing-a-job" class="hash-link" aria-label="Direct link to Editing a job" title="Direct link to Editing a job" translate="no">​</a></h2>
+<p>With the proper permissions, you can modify the details of user-created jobs. To
+quickly enable or disable a user created job from running, use the switches in
+the <strong>On/off</strong> column on the landing page of the Scheduler app. Note that system
+jobs are always enabled and cannot be disabled.</p>
+<p>Further editing of user jobs:</p>
+<ol>
+<li class="">
+<p>Click the &quot;Actions&quot; button of the job you want to edit and click &quot;Edit&quot;
+(only user jobs can be edited).</p>
+</li>
+<li class="">
+<p>When done editing, press the <strong>Save</strong> button to persist the changes.</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="deleting-a-job">Deleting a job<a href="#deleting-a-job" class="hash-link" aria-label="Direct link to Deleting a job" title="Direct link to Deleting a job" translate="no">​</a></h2>
+<ol>
+<li class="">
+<p>Click the &quot;Actions&quot; button of the job you want to delete and click &quot;Delete&quot;
+(only user jobs can be deleted).</p>
+</li>
+<li class="">
+<p>Confirm by pressing <strong>Delete</strong> again in the pop-up window.</p>
+</li>
+</ol>
+<p>User jobs can also be deleted from the editing screen.</p>
+<p><img decoding="async" loading="lazy" alt="Deleting a scheduler job" src="/assets/images/delete_job-5c538dda85f969a5a293e279d428c479.png" width="1150" height="608" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="job-types">Job types<a href="#job-types" class="hash-link" aria-label="Direct link to Job types" title="Direct link to Job types" translate="no">​</a></h2>
+<p>The following section describes the various job types.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="disable-inactive-users">Disable Inactive Users<a href="#disable-inactive-users" class="hash-link" aria-label="Direct link to Disable Inactive Users" title="Direct link to Disable Inactive Users" translate="no">​</a></h3>
+<p>Users that have not been active - not logged in - for a number of months can
+automatically be disabled. Select the number of inactive months as the job
+parameter. All users that have not logged in for that number of months or longer
+will be disabled by the job. Disabled users will no longer be able to log into
+the system.</p>
+<p>The <em>Reminder days before</em> parameter can be set to send a reminder email to
+those users the specified number of days before their account is due to expire.
+If users do not log in further reminder emails are sent each halving the
+previous number of days. For example if the number of days is set to 7 the first
+email is sent 7 days in advance, the second 3 days and the third and last 1 day
+in advance. If the value is not set (blank) no reminder is sent.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="resource-table">Resource table<a href="#resource-table" class="hash-link" aria-label="Direct link to Resource table" title="Direct link to Resource table" translate="no">​</a></h3>
+<p>The resource table job is responsible for generating and updating the resource
+database tables. These tables are used by various components in DHIS 2 and is
+meant to simplify queries against the database.</p>
+<p>Note that when specifying any of the analytics table jobs, resource tables can
+be part of the process and it is not necessary to also specify a resource table
+job.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="analytics-table">Analytics table<a href="#analytics-table" class="hash-link" aria-label="Direct link to Analytics table" title="Direct link to Analytics table" translate="no">​</a></h3>
+<p>The analytics tables job is responsible for generating and updating the
+analytics tables. The analytics tables are used as basis for data analytics
+queries in DHIS2. Apps such as dashboard, visualizer and maps retrieve data from
+these tables through the DHIS2 analytics API, and they must be updated in order
+for analytics data to become available. You can schedule this process to run
+regularly through an analytics table job type.</p>
+<p>The analytics table job will by default populate data for all years and data
+elements. The following parameters are available:</p>
+<ul>
+<li class=""><strong>Last years:</strong> The number of last years to populate analytics tables for. As
+an example, if you specify 2 years, the process will update the two last years
+worth of data, but not update older data. This parameter is useful to reduce
+the time the process takes to complete, and is appropriate if older data has
+not changed, and when updating the latest data is desired.</li>
+<li class=""><strong>Skip resource tables:</strong> Skip resource tables during the analytics table
+update process. This reduces the time the process takes to complete, but leads
+to changes in metadata not being reflected in the analytics data.</li>
+<li class=""><strong>Skip table types:</strong> Skip one or more analytics table types. This reduces the
+time the process takes to complete, but leads to those data types not being
+updated in analytics data.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="continuous-analytics-table">Continuous analytics table<a href="#continuous-analytics-table" class="hash-link" aria-label="Direct link to Continuous analytics table" title="Direct link to Continuous analytics table" translate="no">​</a></h3>
+<p>The analytics tables job is responsible for generating and updating the
+analytics tables. The analytics tables are used as basis for data analytics
+queries in DHIS2. Apps such as dashboard, visualizer and maps retrieve data from
+these tables through the DHIS2 analytics API, and they must be updated in order
+for analytics data to become available. You can schedule this process to run
+regularly through an analytics table job type.</p>
+<p>The continuous analytics table job is based on two phases:</p>
+<ul>
+<li class=""><em>Latest update:</em> Update of the latest data, where latest refers to the data
+which has been added, updated or removed since the last time the latest data
+or the full data was updated. This process will happen frequently.</li>
+<li class=""><em>Full update:</em> Update of all data across all years. This process will happen
+once per day.</li>
+</ul>
+<p>The continuous analytics table job will frequently update the latest data. The
+latest data process utilizes a special database partition which is used to hold
+the latest data only. This partition can be quickly refreshed due to the
+relatively small amount of data. The partition will grow in size until a full
+update is performed. Once per day, all data for all years will be updated. This
+will clear out the latest partition.</p>
+<p>The analytics table job will by default populate data for all years and data
+elements. The following parameters are available:</p>
+<ul>
+<li class=""><strong>Full update hour of day:</strong> The hour of the day at which the full update will
+be done. As an example, if you specify 1, the full update will be performed at
+1 AM.</li>
+<li class=""><strong>Last years:</strong> The number of last years to populate analytics tables for. As
+an example, if you specify 2 years, the process will update the two last years
+worth of data, but not update older data. This parameter is useful to reduce
+the time the process takes to complete, and is appropriate if older data has
+not changed, and when updating the latest data is desired.</li>
+<li class=""><strong>Skip resource tables:</strong> Skip resource tables during the analytics table
+update process. This reduces the time the process takes to complete, but leads
+to changes in metadata not being reflected in the analytics data.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tracker-trigram-index-maintenance">Tracker trigram index maintenance<a href="#tracker-trigram-index-maintenance" class="hash-link" aria-label="Direct link to Tracker trigram index maintenance" title="Direct link to Tracker trigram index maintenance" translate="no">​</a></h3>
+<p>The Tracker Trigram Index Maintenance Job is responsible for creating and updating
+partial trigram indexes for relevant tracked entity attributes on the <code>trackedentityattributevalue</code> table. These partial trigram indexes
+significantly improve the performance of searches on tracked entities.</p>
+<p>A partial trigram index is created for a tracked entity attribute on the <code>trackedentityattributevalue</code> table if both of the
+following conditions are met:</p>
+<ul>
+<li class="">The tracked entity attribute has the flag <code>trigramindexable</code> set to true.</li>
+<li class="">The tracked entity attribute allows the use of at least one of the following
+operators: <code>LIKE</code> or <code>EW</code>.</li>
+</ul>
+<p>The job also removes obsolete partial trigram indexes that were previously created but have
+since become unnecessary because one or both of the above conditions are no longer
+satisfied.</p>
+<p>A trigram index only takes effect if the searched text is at least 3 characters long.
+For this reason, it is recommended to configure the tracked entity attribute intended
+for trigram indexing with a minimum search length of 3 characters.
+This can be set using the property <code>minCharactersToSearch</code>.</p>
+<p>The job accepts one parameter: <code>runAnalyze</code>.
+This is a boolean flag. When set to true, the job will execute an <code>ANALYZE</code> command on
+the <code>trackedentityattributevalue</code> table.
+Running <code>ANALYZE</code> updates PostgreSQL column statistics, enabling the query planner to
+make accurate decisions about when to use the trigram index for optimal query performance.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-synchronization">Data synchronization<a href="#data-synchronization" class="hash-link" aria-label="Direct link to Data synchronization" title="Direct link to Data synchronization" translate="no">​</a></h3>
+<p>DHIS2 provides synchronisation of data between remotely distributed instances
+and a central instance of DHIS2. This can be useful e.g. when you have deployed
+multiple stand-alone instances of DHIS2 which are required to submit data values
+to a central DHIS2 instance. Both tracker data and aggregate data
+synchronization is supported.</p>
+<p>These are the steps to enable data synchronization:</p>
+<ul>
+<li class="">
+<p>Go to Synchronization Settings, enter the remote server URL, username and
+password. Press the TAB button to automatically save the new password. Refresh
+the page and check that the filled values are still present. Note that the
+password field will be empty after the refresh, since this value is encrypted,
+so you can consider it saved.</p>
+</li>
+<li class="">
+<p>Using the Scheduler app, create a new job using the &quot;Event Programs Data Sync&quot;
+and/or &quot;Tracker Programs Data Sync&quot; job type. Make sure it is enabled when you
+finish. (Note: If the &quot;Program Data Synchronization&quot; job, available in
+previous versions, was set up in Scheduler app before, it was automatically
+replaced by the two new jobs &quot;Event Programs Data Sync&quot; and &quot;Tracker Programs
+Data Sync&quot; with the identical settings. )</p>
+</li>
+</ul>
+<p>Some aspects of the data synchronization feature to be aware of:</p>
+<ul>
+<li class="">
+<p>The local DHIS2 instance will store the password of the user account on the
+remote instance encrypted in the local database. The remote account is used
+for authentication when transferring data. For security purposes make sure you
+set the <em>encryption.password</em> configuration parameter in
+<em>hibernate.properties</em> to a strong password.</p>
+</li>
+<li class="">
+<p>Deploying the remote server on SSL/HTTPS is strongly recommended as the
+username and password are sent in clear text using basic authentication and
+could be intercepted by an attacker.</p>
+</li>
+<li class="">
+<p>The data synchronization uses the UID property of data elements, category
+option combos and organisation units to match the meta-data. Hence the
+synchronization is dependent on these three meta-data objects being harmonized
+on the local and remote instance in order to work appropriately.</p>
+</li>
+<li class="">
+<p>The first time DHIS2 runs the synchronization job, it will include any data
+available. The subsequent synchronization jobs will only include data added
+and changed since the last successful job. A synchronization job is considered
+successful only if all the data was saved successfully on the remote server
+(Any data successfully synced will remain on the receiving instance,
+regardless if the job eventually fails). Whether the job was successful or not
+can be decided from the import summary returned from the central server.</p>
+</li>
+<li class="">
+<p>The initial synchronization job may take a significant amount of time,
+possibly slowing down your instance, depending on how much data is being
+synchronized. It could be a good idea to configure the job to run when there
+are few online users, then later change this to your own preference. If you do
+not want or need to synchronize all the data, there is a possibility to
+<a href="#skip_changed_before">skip some of the data being synchronised</a>.</p>
+<p>When DHIS2 synchronizes tracker data, it determines the set of data to
+synchronize based on the last time it was synchronized. Each of the tracked
+entity instances and events have their own records of when they where last
+successfully synchronized.</p>
+</li>
+<li class="">
+<p>The system will start a synchronization job based on the rules set in the
+configuration of the job. If the synchronization job starts while there is no
+connection to the remote server, it will retry up to three times before it
+aborts. The job will run again at a scheduled time.</p>
+</li>
+<li class="">
+<p>The server handles each set of programs separately, which means one set of
+programs can be synchronized successfully, while the other fails. The failure
+or success of one doesn&#x27;t influence the other, as the last successful
+synchronization time is tracked individually for each item as previously
+mentioned.</p>
+</li>
+<li class="">
+<p>The attributes of TrackedEntityInstances (TrackedEntityAttribute) and the data
+elements of ProgramStages (ProgramStageDataElement) which have an option &quot;Skip
+synchronization&quot; turned on will not be synchronized. This feature allows you
+to decide to not synchronize some sensitive or not relevant data and to keep
+them only locally.</p>
+</li>
+<li class="">
+<p>The authority
+<code>Ignore validation of required fields in Tracker and Event Capture</code>
+(<code>F_IGNORE_TRACKER_REQUIRED_VALUE_VALIDATION</code>) should be used when there
+is a requirement that some mandatory attribute / data element has at the same
+time a &quot;Skip synchronization&quot; property turned on. Such a setting will lead to
+validation failure on the central server as the given attribute / data element
+will not be present in the payload.</p>
+<p>The validation won&#x27;t fail for the user with this authority. The authority
+should be assigned to the user, on the central server, that will be used for
+synchronization job.</p>
+</li>
+<li class="">
+<p>In specific cases, <strong>the initial synchronization of all the data can be
+undesirable</strong>; for example, when a database on the local instance is a fresh
+copy of the database present on the central instance, or when it is preferred
+to not synchronize old data in favor of initial synchronization taking less
+time.</p>
+<p>The <em>syncSkipSyncForDataChangedBefore</em> SettingKey can be used to skip the
+synchronisation of all the data (data values, Event and Tracker program data,
+complete data set registrations) that were <em>last changed before the specified
+date</em>. The <code>SettingKey</code> is used in the synchronization job all the time.
+Therefore, if you need to synchronize the old data, you should change the
+<code>SettingKey</code>.</p>
+</li>
+<li class="">
+<p>Both Tracker Programs and Event Programs synchronization job supports paging
+in order to avoid timeouts and to deal with unstable network. Default page
+size for &quot;Event Programs Data Sync&quot; job is set to 60. Default page size for
+&quot;Tracker Programs Data Sync&quot; job is set to 20.</p>
+<p>If default values do not fit your purpose, own page size can be specified via
+parameter in particular sync job in Scheduler app.</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="metadata-synchronization-scheduling">Metadata Synchronization Scheduling<a href="#metadata-synchronization-scheduling" class="hash-link" aria-label="Direct link to Metadata Synchronization Scheduling" title="Direct link to Metadata Synchronization Scheduling" translate="no">​</a></h3>
+<p>DHIS2 provides a feature for synchronizing meta data from a remote instance to a
+local instance of DHIS2. This can be useful when you have deployed multiple
+stand-alone instances of DHIS2 and you need to create meta data in all the local
+instances similar to the central DHIS2 instance.</p>
+<p>These are the steps to enable meta data synchronization:</p>
+<ul>
+<li class="">
+<p>Go to Settings &gt; Synchronization, enter the remote server URL, username and
+password and click Save.</p>
+</li>
+<li class="">
+<p>Using the Scheduler app, create a new job using the &quot;Metadata synchronization&quot; job type.</p>
+</li>
+</ul>
+<p>Some aspects of the meta data synchronization feature to be aware of:</p>
+<ul>
+<li class="">
+<p>The local DHIS2 instance will store the password of the user account of the
+remote instance in its database. The remote user account is used for
+authentication when transferring/downloading data. For security purposes make
+sure you set the <em>encryption.password</em> configuration parameter in
+<em>hibernate.properties</em> to a strong password.</p>
+</li>
+<li class="">
+<p>Deploying the remote server on SSL/HTTPS is strongly recommended as the
+username and password are sent in clear text using basic authentication and
+could be intercepted by an attacker.</p>
+</li>
+<li class="">
+<p>Also ensure that the remote user is not having ALL authority, instead simply
+create a user with F_METADATA_MANAGE authority so that even if these details
+are intercepted by a hacker, one cannot have full control of the remote
+system.</p>
+</li>
+<li class="">
+<p>The meta data synchronization relies on the underlying import layer. Each meta
+data version is an export of meta data between two given timestamps. Each sync
+of meta data version is an attempt to import that meta data snapshot into the
+local instance. The sync of versions is incremental. The local instance will
+try to download the meta data versions from the central instance one after the
+other. Failure to sync a specific meta data version will not let the sync
+proceed to further versions. In case of failures, appropriate changes must be
+made to meta data at central to ensure that the error gets resolved. Metadata
+configuration is critical and the user should be careful while rolling out the
+updates to the production. It&#x27;s always recommended to have staging
+environments in place to ensure the sanity of the meta data versions and their
+impact thereafter. The local instance will sync the meta data from first
+version so that harmony is maintained and local and central instance will work
+appropriately.</p>
+</li>
+<li class="">
+<p>The system will attempt a synchronization at the scheduled time. If the local
+or remote server does not have a working Internet connection at the time, the
+synchronization will be aborted and re-attempted after as per the retry count
+as mentioned in the <em>dhis.conf</em> file.</p>
+</li>
+<li class="">
+<p>You can see the time of last successful synchronization with remote server in
+the scheduling screen next to the &quot;Last success&quot; label.</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="predictor">Predictor<a href="#predictor" class="hash-link" aria-label="Direct link to Predictor" title="Direct link to Predictor" translate="no">​</a></h3>
+<p>This runs selected predictors and/or predictor groups.</p>
+<p>The relative start and end parameters determine the periods in which data will
+be predicted, corresponding to the date on which the predictor job is run:</p>
+<ul>
+<li class="">
+<p><strong>Relative start</strong> counts the days from the job date to the earliest date on
+which a predicted period may start. It can be positive or negative. For
+example, a value of 3 means predict into periods that start at least 3 days
+after the predictor run. A value of -3 means predict into periods that start
+at least 3 days before the predictor run.</p>
+</li>
+<li class="">
+<p><strong>Relative end</strong> counts the days from the job date to the latest date on which
+a predicted period may end. It can be positive or negative. For example, a
+value of 9 means predict into periods that end at least 9 days after the
+predictor run. A value of -9 means predict into periods that end at least 9
+days before the predictor run.</p>
+</li>
+</ul>
+<p>Setting these values can give you very flexible control over when predictions
+will be made, especially if your predictor job is set to run daily or more
+frequently. Before you set these values, you should think carefully about when
+you want predictions for a period to start being made, and when you want them to
+stop being made. Then you need to compute the appropriate relative start and end
+dates.</p>
+<p>Examples:</p>
+<ol>
+<li class="">
+<p><strong>Requirement</strong>: A predictor uses data from the same week as the predicted
+value. (No past sampled data are used.) After the week ends on Sunday, you
+expect the data to be entered in the following two days (Monday and
+Tuesday). You don&#x27;t want to start predicting data until Wednesday after the
+week ends because you don&#x27;t want partial results to be shown. However, data
+may still be adjusted on Wednesday, so you want to update the predictions
+also on Thursday. After that, the data are frozen and you don&#x27;t want to
+predict for that period anymore.</p>
+<p><strong>Solution:</strong> For a job running daily or more frequently, define the
+relative start as -10 and the relative end as -2 (for periods
+within 10 to 2 days before the job runs).</p>
+<ul>
+<li class="">
+<p>Before Wednesday of the following week, the period end is
+greater than 2 days before, so no predictions are made.</p>
+</li>
+<li class="">
+<p>On Wednesday of the following week, the period started 9 days
+before and ended 2 days before. Predictions are made because -9 to -2
+are within the range -10 to -2.</p>
+</li>
+<li class="">
+<p>On Thursday of the following week, the period started 10 days
+before and ended 3 days before. Predictions are made because -10 to -3
+are within the range -10 to -2.</p>
+</li>
+<li class="">
+<p>After Thursday, the previous week started more than
+10 days before, so no predictions are made.</p>
+</li>
+<li class="">
+<p>Predictions are made only on Wednesday and Thursday. On Friday through
+Tuesday, no predictions are made (and the job finishes very quickly).</p>
+</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Requirement</strong>: A predictor is used to forecast a limit (average plus twice
+the standard deviation) for expected non-seasonally varying disease cases
+based on data from the previous five weeks. Weeks are Monday through Sunday.
+Predictions should start being made from the previous Tuesday, using
+available data at that time, and continue being made through Tuesday of the
+week that the predictions are being made for (by which time it is assumed
+that the previous week&#x27;s data are final).</p>
+<p><strong>Solution:</strong> For a job running daily or more frequently,
+define the relative start as -1 and the relative end as 12.</p>
+<ul>
+<li class="">
+<p>Before Tuesday, predictions will not be made for the following week because it
+ends more than 12 days later.</p>
+</li>
+<li class="">
+<p>On Tuesday, predictions will be made for the following week which starts
+in 6 days and ends in 12 days.</p>
+</li>
+<li class="">
+<p>On Wednesday through the following Tuesday, predictions will be made for
+the week whose start-to-end dates are Wed: 5 to 11, Thu: 4 to 10,
+Fri: 3 to 9, Sat: 2 to 8, Sun: 1 to 7, Mon: 0 to 6, and Tue: -1 to 5.</p>
+</li>
+<li class="">
+<p>Note that on Tuesday, predictions are made for the current week with
+start-to-end dates -1 to 5, and also for the following week
+with start-to-end dates 6 to 12. On all other days of the week
+predictions are made for one week.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>You can select which predictors and predictor groups will run during the job:</p>
+<ul>
+<li class="">
+<p><strong>Predictors</strong> runs individual predictors. They run in the order added.</p>
+</li>
+<li class="">
+<p><strong>Predictor groups</strong> runs predictor groups. They run in the order added. The
+predictors within each group run in the order of their names (comparing
+Unicode character values).</p>
+</li>
+</ul>
+<p>If both individual predictors and predictor groups are selected in the same job,
+the individual predictors run first, followed by the predictor groups.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-integrity">Data integrity<a href="#data-integrity" class="hash-link" aria-label="Direct link to Data integrity" title="Direct link to Data integrity" translate="no">​</a></h3>
+<p>The Data Integrity job type is responsible for scheduling data integrity checks. DHIS2 can perform a wide range of data integrity checks on the data contained in the database. Identifying and correcting data integrity issues is extremely important for ensuring that the data used for analysis purposes is valid. Each of the data integrity checks that are performed by the system will be described, along with general procedures that can be performed to resolve these issues.</p>
+<p>The result of the data integrity checks can be viewed in the Data Administration app. As of 2.41 the result of the data integrity checks are only available for up to <em>one hour</em> after the job has completed.</p>
+<p>Some data integrity checks are marked as <em>slow</em>. Users should be cautious about running these checks on production systems as they could lead to decreased performance. It&#x27;s generally not recommended to run more than one of these at the same time.</p>
+<p>The following parameters are available:</p>
+<ul>
+<li class=""><strong>Report type</strong> the level of specificity of the result. The available options are:<!-- -->
+<ul>
+<li class=""><strong>Summary</strong> - a summary of the number of issues will be available.</li>
+<li class=""><strong>Details</strong> - a list of issues pointing to individual data integrity violations will be available for each integrity check.</li>
+</ul>
+</li>
+<li class=""><strong>Checks to run</strong> specify the data integrity checks to run. If <em>only run selected checks</em> is selected, a list of checks where you will be able to select only the checks to run will be displayed. If <em>run all standard checks</em> is selected, all <em>standard</em> checks will be executed. Note that this will not run checks that are marked as <em>slow</em> - these checks must be selected manually using <em>only run selected checks</em>.</li>
+</ul>
+<p>See <a href="#data_admin_data_integrity" class="">Data Administration</a> for more information about the available data integrity checks.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="schedule-queues">Schedule Queues<a href="#schedule-queues" class="hash-link" aria-label="Direct link to Schedule Queues" title="Direct link to Schedule Queues" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="creating-a-queue">Creating a queue<a href="#creating-a-queue" class="hash-link" aria-label="Direct link to Creating a queue" title="Direct link to Creating a queue" translate="no">​</a></h3>
+<ol>
+<li class="">
+<p>Open the <strong>Scheduler</strong> app and click the &quot;New queue&quot; button in the top right
+corner.</p>
+</li>
+<li class="">
+<p>Choose a suitable <strong>Name</strong> for the new queue.</p>
+</li>
+<li class="">
+<p>Select a cron schedule for the queue. Queues can be scheduled using the
+<a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html" target="_blank" rel="noopener noreferrer" class="">Spring scheduling</a>
+syntax, just like jobs. You can also select a predefined <strong>Cron expression</strong>
+by clicking &quot;Choose from preset times&quot;.</p>
+</li>
+<li class="">
+<p>Select the jobs that should be part of the queue. The available jobs can be
+added to the queue with the arrow buttons. The queue will run the jobs in
+the order specified here.</p>
+</li>
+<li class="">
+<p>Press the <strong>Save</strong> button to confirm the queue creation. On successful queue
+creation you will be redirected to the jobs and queue overview, where the
+newly created queue will now be listed. The queue will have a dropdown arrow
+that can be clicked to show the jobs that are part of the queue.</p>
+</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="Creating a new scheduler queue" src="/assets/images/add_new_queue-1494aa9f6968618b0170b53968ac82ab.png" width="1152" height="660" class="img_ev3q"></p>
+<p>Newly created queues are enabled by default.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="editing-a-queue">Editing a queue<a href="#editing-a-queue" class="hash-link" aria-label="Direct link to Editing a queue" title="Direct link to Editing a queue" translate="no">​</a></h3>
+<p>With the proper permissions, you can modify the details of queues. To quickly
+enable or disable a queue from running, use the switches in the <strong>On/off</strong>
+column on the landing page of the Scheduler app.</p>
+<p>Further editing of queues:</p>
+<ol>
+<li class="">
+<p>Click the &quot;Actions&quot; button of the queue you want to edit and click &quot;Edit&quot;.</p>
+</li>
+<li class="">
+<p>When done editing, press the <strong>Save</strong> button to persist the changes.</p>
+</li>
+<li class="">
+<p>If jobs were removed from the queue, they will be displayed again in the
+overview. But since they were part of a queue, they will be disabled and
+without a schedule.</p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="deleting-a-queue">Deleting a queue<a href="#deleting-a-queue" class="hash-link" aria-label="Direct link to Deleting a queue" title="Direct link to Deleting a queue" translate="no">​</a></h3>
+<ol>
+<li class="">
+<p>Click the &quot;Actions&quot; button of the queue you want to delete and click
+&quot;Delete&quot;.</p>
+</li>
+<li class="">
+<p>Confirm by pressing <strong>Delete</strong> again in the pop-up window.</p>
+</li>
+<li class="">
+<p>All jobs that were part of the queue will be displayed again in the
+overview. But since they were part of a queue, they will be disabled and
+without a schedule.</p>
+</li>
+</ol>
+<p>Queues can also be deleted from the editing screen.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Implementation Guide/admin/release-and-upgrade-notes"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Release and upgrade notes</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Implementation Guide/admin/sms-configuration"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Configuring SMS</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#creating-a-job" class="table-of-contents__link toc-highlight">Creating a job</a></li><li><a href="#editing-a-job" class="table-of-contents__link toc-highlight">Editing a job</a></li><li><a href="#deleting-a-job" class="table-of-contents__link toc-highlight">Deleting a job</a></li><li><a href="#job-types" class="table-of-contents__link toc-highlight">Job types</a><ul><li><a href="#disable-inactive-users" class="table-of-contents__link toc-highlight">Disable Inactive Users</a></li><li><a href="#resource-table" class="table-of-contents__link toc-highlight">Resource table</a></li><li><a href="#analytics-table" class="table-of-contents__link toc-highlight">Analytics table</a></li><li><a href="#continuous-analytics-table" class="table-of-contents__link toc-highlight">Continuous analytics table</a></li><li><a href="#tracker-trigram-index-maintenance" class="table-of-contents__link toc-highlight">Tracker trigram index maintenance</a></li><li><a href="#data-synchronization" class="table-of-contents__link toc-highlight">Data synchronization</a></li><li><a href="#metadata-synchronization-scheduling" class="table-of-contents__link toc-highlight">Metadata Synchronization Scheduling</a></li><li><a href="#predictor" class="table-of-contents__link toc-highlight">Predictor</a></li><li><a href="#data-integrity" class="table-of-contents__link toc-highlight">Data integrity</a></li></ul></li><li><a href="#schedule-queues" class="table-of-contents__link toc-highlight">Schedule Queues</a><ul><li><a href="#creating-a-queue" class="table-of-contents__link toc-highlight">Creating a queue</a></li><li><a href="#editing-a-queue" class="table-of-contents__link toc-highlight">Editing a queue</a></li><li><a href="#deleting-a-queue" class="table-of-contents__link toc-highlight">Deleting a queue</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="#" class="footer__link-item">DHIS2 Community</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="#" class="footer__link-item">Blog</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 EHMIS (IHIMS Nepal). Built with Amakomaya Nepal.</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Implementation Guide/admin/data-administration" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Data Administration | EHMIS Nepal</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.hispnp.org/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.hispnp.org/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.hispnp.org/docs/Implementation Guide/admin/data-administration"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Data Administration | EHMIS Nepal"><meta data-rh="true" name="description" content="The data administration module provides a range of functions to ensure"><meta data-rh="true" property="og:description" content="The data administration module provides a range of functions to ensure"><link data-rh="true" rel="icon" href="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg"><link data-rh="true" rel="canonical" href="https://docs.hispnp.org/docs/Implementation Guide/admin/data-administration"><link data-rh="true" rel="alternate" href="https://docs.hispnp.org/docs/Implementation Guide/admin/data-administration" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.hispnp.org/docs/Implementation Guide/admin/data-administration" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Admin User","item":"https://docs.hispnp.org/docs/category/admin-user"},{"@type":"ListItem","position":2,"name":"Data Administration","item":"https://docs.hispnp.org/docs/Implementation Guide/admin/data-administration"}]}</script><link rel="stylesheet" href="/assets/css/styles.ed364f4f.css">
+<script src="/assets/js/runtime~main.012f789d.js" defer="defer"></script>
+<script src="/assets/js/main.8f76942d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg" alt="EHIMS" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg" alt="EHIMS" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">EHIMS</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/intro">Docs  </a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro"><span title="DHIS2 EHMIS Documentation" class="linkLabel_WmDU">DHIS2 EHMIS Documentation</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/category/admin-user"><span title="Implementation Guide" class="categoryLinkLabel_W154">Implementation Guide</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/docs/category/admin-user"><span title="Admin User" class="categoryLinkLabel_W154">Admin User</span></a><button aria-label="Collapse sidebar category &#x27;Admin User&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/about-data-dimensions"><span title="About data dimensions" class="linkLabel_WmDU">About data dimensions</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/about-demo-server-live-package-and-database-design"><span title="About demo server, D2 cluster and database design" class="linkLabel_WmDU">About demo server, D2 cluster and database design</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/about-sharing-of-objects"><span title="About Sharing of Objects" class="linkLabel_WmDU">About Sharing of Objects</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/additional-data-dimensions"><span title="Additional Data Dimensions" class="linkLabel_WmDU">Additional Data Dimensions</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/analyze-data-in-pivot-tables"><span title="Analyze data in pivot tables" class="linkLabel_WmDU">Analyze data in pivot tables</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/classic-data-visualizer"><span title="Data Visualizer" class="linkLabel_WmDU">Data Visualizer</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/command-palette"><span title="Command Palette" class="linkLabel_WmDU">Command Palette</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/configure-metadata-synchronizing"><span title="Configure metadata synchronizing" class="linkLabel_WmDU">Configure metadata synchronizing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/configure-metadata"><span title="Configure metadata" class="linkLabel_WmDU">Configure metadata</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/Implementation Guide/admin/data-administration"><span title="Data Administration" class="linkLabel_WmDU">Data Administration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/data-approval"><span title="Data approval overview" class="linkLabel_WmDU">Data approval overview</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/data-exchange"><span title="Using the Data Exchange app" class="linkLabel_WmDU">Using the Data Exchange app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/datastore-management"><span title="Datastore Management App" class="linkLabel_WmDU">Datastore Management App</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/dhis2-frequently-asked-questions"><span title="DHIS2 Frequently Asked Questions" class="linkLabel_WmDU">DHIS2 Frequently Asked Questions</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/dhis2-glossary"><span title="DHIS2 Glossary" class="linkLabel_WmDU">DHIS2 Glossary</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/dhis2-tutorials"><span title="DHIS2 Tutorials" class="linkLabel_WmDU">DHIS2 Tutorials</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/getting-started-help-to-navigate-the-user-guide"><span title="Getting started - help to navigate the user guide" class="linkLabel_WmDU">Getting started - help to navigate the user guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/importexport-app"><span title="Import/Export App" class="linkLabel_WmDU">Import/Export App</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/"><span title="Use" class="linkLabel_WmDU">Use</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/login-flow"><span title="DHIS2 Login Flow with Email 2FA" class="linkLabel_WmDU">DHIS2 Login Flow with Email 2FA</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/manage-users-user-roles-and-user-groups"><span title="Manage users, user roles and user groups" class="linkLabel_WmDU">Manage users, user roles and user groups</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/messaging"><span title="Messaging" class="linkLabel_WmDU">Messaging</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/mobile"><span title="Mobile" class="linkLabel_WmDU">Mobile</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/personal-access-tokens"><span title="Personal access tokens" class="linkLabel_WmDU">Personal access tokens</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/relationship-model"><span title="Relationship model" class="linkLabel_WmDU">Relationship model</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/release-and-upgrade-notes"><span title="Release and upgrade notes" class="linkLabel_WmDU">Release and upgrade notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/scheduling"><span title="Scheduling" class="linkLabel_WmDU">Scheduling</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/sms-configuration"><span title="Configuring SMS" class="linkLabel_WmDU">Configuring SMS</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/system-settings"><span title="System settings" class="linkLabel_WmDU">System settings</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/user-authorities"><span title="User authorities" class="linkLabel_WmDU">User authorities</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-reporting-functionality"><span title="Reporting functionality in the reports app" class="linkLabel_WmDU">Reporting functionality in the reports app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-the-event-capture-app"><span title="Using the Event Capture app" class="linkLabel_WmDU">Using the Event Capture app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-the-gis-app"><span title="Using the GIS app" class="linkLabel_WmDU">Using the GIS app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-the-tracker-capture-app"><span title="Using the Tracker Capture app" class="linkLabel_WmDU">Using the Tracker Capture app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/what-is-dhis2"><span title="What is DHIS2?" class="linkLabel_WmDU">What is DHIS2?</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/category/android"><span title="Android" class="categoryLinkLabel_W154">Android</span></a><button aria-label="Expand sidebar category &#x27;Android&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/Implementation Guide/metadata/about-metadata"><span title="metadata" class="categoryLinkLabel_W154">metadata</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/Implementation Guide/sysadmin/"><span title="Installation" class="categoryLinkLabel_W154">Installation</span></a><button aria-label="Expand sidebar category &#x27;Installation&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/User Operations Manual/Central Government/introduction"><span title="User Operations Manual" class="categoryLinkLabel_W154">User Operations Manual</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Implementation Guide</span></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/category/admin-user"><span>Admin User</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Data Administration</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Data Administration</h1></header>
+<p>The data administration module provides a range of functions to ensure
+that the data stored in the DHIS2 database is integral and that the
+database performance is optimised. These functions should be executed on
+a regular basis by a data administrator to ensure that the quality of
+the data stored is optimal.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-integrity">Data integrity<a href="#data-integrity" class="hash-link" aria-label="Direct link to Data integrity" title="Direct link to Data integrity" translate="no">​</a></h2>
+<p>DHIS2 can perform a wide range of data integrity checks on the data
+contained in the database. Identifying and correcting data integrity
+issues is extremely important for ensuring that the data used for
+analysis purposes is valid. Each of the data integrity checks that are
+performed by the system will be described, along with general procedures
+that can be performed to resolve these issues.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-elements-without-data-set">Data elements without data set<a href="#data-elements-without-data-set" class="hash-link" aria-label="Direct link to Data elements without data set" title="Direct link to Data elements without data set" translate="no">​</a></h3>
+<p>Each data element must be assigned to a data set. Values for data
+elements will not be able to be entered into the system if a data
+element is not assigned to a data set. Choose
+Maintenance-&gt;Datasets-&gt;Edit from the main menu and then add the
+&quot;orphaned&quot; data element to the appropriate data set.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-elements-without-groups">Data elements without groups<a href="#data-elements-without-groups" class="hash-link" aria-label="Direct link to Data elements without groups" title="Direct link to Data elements without groups" translate="no">​</a></h3>
+<p>Some Data Elements have been allocated to several Data Element Groups.
+This is currently not allowed, because it will result in duplication of
+linked data records in the analytics record sets that provide aggregated
+data. Go to Maintenance -&gt; Data Element Groups to review each Data
+Element identified and remove the incorrect Group allocations.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-elements-violating-exclusive-group-sets">Data elements violating exclusive group sets<a href="#data-elements-violating-exclusive-group-sets" class="hash-link" aria-label="Direct link to Data elements violating exclusive group sets" title="Direct link to Data elements violating exclusive group sets" translate="no">​</a></h3>
+<p>Some data elements have been allocated to several data element groups
+that are members of the same data element group set. All group sets in
+DHIS2 are defined as exclusive, which means that a data element can
+<em>only</em> be allocated to <em>one</em> data element group within that group set.
+Go to Maintenance -&gt; Data elements and indicators -&gt; Data element
+groups to review each data element identified in the integrity check.
+Either remove the data element from all groups except the one that it
+should be allocated to, or see if one of the groups should be placed in
+a different group set.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-elements-in-data-set-but-not-in-form-or-sections">Data elements in data set but not in form or sections<a href="#data-elements-in-data-set-but-not-in-form-or-sections" class="hash-link" aria-label="Direct link to Data elements in data set but not in form or sections" title="Direct link to Data elements in data set but not in form or sections" translate="no">​</a></h3>
+<p>Data elements have been assigned to a data set, but have not been
+assigned to any sections of the data set forms. All data sets which use
+section forms, should generally have all data elements in the data set
+assigned to exactly one section of the dataset.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-elements-assigned-to-data-sets-with-different-period-types">Data elements assigned to data sets with different period types<a href="#data-elements-assigned-to-data-sets-with-different-period-types" class="hash-link" aria-label="Direct link to Data elements assigned to data sets with different period types" title="Direct link to Data elements assigned to data sets with different period types" translate="no">​</a></h3>
+<p>Data elements should not be assigned to two separate data sets whose
+period types differ. The recommended approach would be to create two
+separate data elements (for instance a monthly and yearly data element)
+and assign these to respective datasets.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-sets-not-assigned-to-organisation-units">Data sets not assigned to organisation units<a href="#data-sets-not-assigned-to-organisation-units" class="hash-link" aria-label="Direct link to Data sets not assigned to organisation units" title="Direct link to Data sets not assigned to organisation units" translate="no">​</a></h3>
+<p>All data sets should be assigned to at least one organisation unit.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sections-with-invalid-category-combinations">Sections with invalid category combinations<a href="#sections-with-invalid-category-combinations" class="hash-link" aria-label="Direct link to Sections with invalid category combinations" title="Direct link to Sections with invalid category combinations" translate="no">​</a></h3>
+<p>Data sets which use section forms should only have a single category
+combination within each section. This violation could result from
+assigning a data element to a section, but then changing the category
+combination of this data element at a later point in time.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="indicators-with-identical-formulas">Indicators with identical formulas<a href="#indicators-with-identical-formulas" class="hash-link" aria-label="Direct link to Indicators with identical formulas" title="Direct link to Indicators with identical formulas" translate="no">​</a></h3>
+<p>Although this rule will not affect data quality, it generally does not
+make sense to have two indicators with the exact same definition. Review
+the identified indicators and their formulas and delete or modify any
+indicator that appears to be the duplicate.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="indicators-without-groups">Indicators without groups<a href="#indicators-without-groups" class="hash-link" aria-label="Direct link to Indicators without groups" title="Direct link to Indicators without groups" translate="no">​</a></h3>
+<p>All data elements and indicators must be assigned to at least one group,
+so these Indicators need to be allocated to their correct Data Element
+and Indicator Group. From the main menu, go to Data elements/Indicators
+-&gt; Indicator Groups, and allocate each of the `Orphaned` indicators
+to its correct group.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="invalid-indicator-numerators">Invalid indicator numerators<a href="#invalid-indicator-numerators" class="hash-link" aria-label="Direct link to Invalid indicator numerators" title="Direct link to Invalid indicator numerators" translate="no">​</a></h3>
+<p>Violations of this rule may be caused by an incorrect reference to a
+deleted or modified data element. Review the indicator and make
+corrections to the numerator definition.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="invalid-indicator-denominators">Invalid indicator denominators<a href="#invalid-indicator-denominators" class="hash-link" aria-label="Direct link to Invalid indicator denominators" title="Direct link to Invalid indicator denominators" translate="no">​</a></h3>
+<p>Violations of this rule may be caused by an incorrect reference to a
+deleted or modified data element. Review the indicator and make
+corrections to the denominator definition.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="indicators-violating-exclusive-group-sets">Indicators violating exclusive group sets<a href="#indicators-violating-exclusive-group-sets" class="hash-link" aria-label="Direct link to Indicators violating exclusive group sets" title="Direct link to Indicators violating exclusive group sets" translate="no">​</a></h3>
+<p>Some indicators have been allocated to several indicator groups that are
+members of the same indicator group set. All group sets in DHIS2 are
+defined as exclusive, which means that an indicator can <em>only</em> be
+allocated to <em>one</em> indicator group within that group set. Go to
+Maintenance -&gt; Data elements and indicators -&gt; Indicator groups to
+review each indicator identified in the integrity check. Either remove
+the indicator from all groups except the one that it should be allocated
+to, or see if one of the groups should be placed in a different group
+set.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="duplicate-periods">Duplicate periods<a href="#duplicate-periods" class="hash-link" aria-label="Direct link to Duplicate periods" title="Direct link to Duplicate periods" translate="no">​</a></h3>
+<p>If periods have been imported from external applications, it may be
+possible that some periods will be duplicated. If you have any periods
+which appear to be duplicated here, you will need to resolve these
+directly in the DHIS2 database. All data which has been assigned to the
+duplicated period, should be moved to the correct period, and the
+duplicate period should be removed.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="organisation-units-with-cyclic-references">Organisation units with cyclic references<a href="#organisation-units-with-cyclic-references" class="hash-link" aria-label="Direct link to Organisation units with cyclic references" title="Direct link to Organisation units with cyclic references" translate="no">​</a></h3>
+<p>Organisation units cannot be both parent and children of each other,
+directly nor indirectly. If this situation occurs, you will need to
+resolve the cyclic reference directly in the DHIS2 database in the
+&quot;organisation unit&quot; table, by reassigning the &quot;parentid&quot; field of the
+organisation units.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="orphaned-organisation-units">Orphaned organisation units<a href="#orphaned-organisation-units" class="hash-link" aria-label="Direct link to Orphaned organisation units" title="Direct link to Orphaned organisation units" translate="no">​</a></h3>
+<p>All organisation units must exist within the organisation unit
+hierarchy. Go to Organisation units -&gt; Hierarchy Operations and move the
+offending organisation unit into the proper position in the hierarchy.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="organisation-units-without-groups">Organisation units without groups<a href="#organisation-units-without-groups" class="hash-link" aria-label="Direct link to Organisation units without groups" title="Direct link to Organisation units without groups" translate="no">​</a></h3>
+<p>All organisation units <em>must</em> be allocated to at least <em>one</em> group. The
+problem might either be that you have not defined any compulsory OrgUnit
+Group Set at all, or that there are violations of the compulsory rule
+for some OrgUnits . NOTE: If you have defined no compulsory OrgUnit
+Group Sets, then you must first define them by going to Organisation
+units-&gt;Organisation unit group sets and define at least one compulsory
+Group Set (the group set &#x27;Type&#x27; are nearly universally relevant). If you
+have the relevant group sets, go to Maintenance -&gt; OrgUnit Groups to
+review each OrgUnit identified and add the relevant Group allocation.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="organisation-units-violating-compulsory-group-sets">Organisation units violating compulsory group sets<a href="#organisation-units-violating-compulsory-group-sets" class="hash-link" aria-label="Direct link to Organisation units violating compulsory group sets" title="Direct link to Organisation units violating compulsory group sets" translate="no">​</a></h3>
+<p>These organisation units have not been assigned to the any organisation
+unit group within one of the <em>compulsory</em> organisation unit group sets.
+When a group set is defined as compulsory, it means that an organisation
+unit must be allocated to at least one organisation unit group within
+that group set. For instance, all organisation units must belong to one
+of the groups in the &#x27;Type&#x27; group set. It might belong to the
+`Hospital` or the `Clinic` or any other &#x27;type&#x27; group - but it must
+belong to exactly one of them. Go to Organisation units-&gt;Organisation
+unit groups to review each organisation unit identified in the integrity
+check. Allocate all organisation units to exactly one compulsory group.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="organisation-units-violating-exclusive-group-sets">Organisation units violating exclusive group sets<a href="#organisation-units-violating-exclusive-group-sets" class="hash-link" aria-label="Direct link to Organisation units violating exclusive group sets" title="Direct link to Organisation units violating exclusive group sets" translate="no">​</a></h3>
+<p>Some organisation units have been allocated to several organisation unit
+groups that are members of the same organisation unit group set. All
+group sets in DHIS2 are defined as exclusive, which means that an
+organisation unit can <em>only</em> be allocated to <em>one</em> organisation unit
+group within that Group Set. For instance, one organisation unit cannot
+normally belong to the both the &#x27;Hospital&#x27; and &#x27;Clinic&#x27; groups , but
+rather to only to one of them. Go to Organisation unit-&gt;Organisation
+unit groups to review each organisation unit identified in the integrity
+check. Remove the organisation units from all groups except the one that
+it should be allocated to.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="organisation-unit-groups-without-group-sets">Organisation unit groups without group sets<a href="#organisation-unit-groups-without-group-sets" class="hash-link" aria-label="Direct link to Organisation unit groups without group sets" title="Direct link to Organisation unit groups without group sets" translate="no">​</a></h3>
+<p>The organisation unit groups listed here have not been allocated to a
+group set. Go to Maintenance-&gt;Organisation unit-&gt;Organisation unit
+group sets and allocate the Organisation unit group to the appropriate
+group set.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="validation-rules-without-groups">Validation rules without groups<a href="#validation-rules-without-groups" class="hash-link" aria-label="Direct link to Validation rules without groups" title="Direct link to Validation rules without groups" translate="no">​</a></h3>
+<p>All validation rules must be assigned to a group. Go to <strong>Maintenance</strong>
+app &gt; <strong>Validation rule group</strong> and assign the offending validation
+rule to a group.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="invalid-validation-rule-left-side-expressions">Invalid validation rule left side expressions<a href="#invalid-validation-rule-left-side-expressions" class="hash-link" aria-label="Direct link to Invalid validation rule left side expressions" title="Direct link to Invalid validation rule left side expressions" translate="no">​</a></h3>
+<p>An error exists in the left-side validation rule definition. Go to
+<strong>Maintenance</strong> app -&gt; <strong>Validation rule</strong> and click <strong>Edit</strong> on the
+offending rule. Click <strong>Left side</strong> and make the required corrections.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="invalid-validation-rule-right-side-expressions">Invalid validation rule right side expressions<a href="#invalid-validation-rule-right-side-expressions" class="hash-link" aria-label="Direct link to Invalid validation rule right side expressions" title="Direct link to Invalid validation rule right side expressions" translate="no">​</a></h3>
+<p>An error exists in the right-side validation rule definition. Go to
+<strong>Maintenance</strong> app -&gt; <strong>Validation rule</strong> and click <strong>Edit</strong> on the
+offending rule. Click <strong>Right side</strong> and make the required corrections.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="programrules-with-no-condition">ProgramRules with no condition<a href="#programrules-with-no-condition" class="hash-link" aria-label="Direct link to ProgramRules with no condition" title="Direct link to ProgramRules with no condition" translate="no">​</a></h3>
+<p>Report will highlight all the <strong>Program rules</strong> not configured with <strong>Condition</strong>. Evaluation for rules not having condition are always evaluated as false.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="programrules-with-no-priority">ProgramRules with no priority<a href="#programrules-with-no-priority" class="hash-link" aria-label="Direct link to ProgramRules with no priority" title="Direct link to ProgramRules with no priority" translate="no">​</a></h3>
+<p>Report will highlight all the <strong>Program rules</strong> not configured with <strong>Priority</strong>. This is optional but its existence is very important when <strong>ProgramRuleActionType</strong> is <strong>ASSIGN</strong>. Rules with ASSIGN action type should have higher priority then the rest of the action types.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="programrules-with-no-action">ProgramRules with no action<a href="#programrules-with-no-action" class="hash-link" aria-label="Direct link to ProgramRules with no action" title="Direct link to ProgramRules with no action" translate="no">​</a></h3>
+<p>Report will highlight all the <strong>Program rules</strong> not configured with any <strong>ProgramRuleAction</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="programrulevariables-without-dataelements">ProgramRuleVariables without dataElements<a href="#programrulevariables-without-dataelements" class="hash-link" aria-label="Direct link to ProgramRuleVariables without dataElements" title="Direct link to ProgramRuleVariables without dataElements" translate="no">​</a></h3>
+<p>Report will highlight all the <strong>Program rule variables</strong> not configured with <strong>DataElement</strong>. Report will be based on source type configuration. DataElement should be provided when the source type of ProgramRuleVariable is <strong>DataElement</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="programrulevariables-without-attributes">ProgramRuleVariables without attributes<a href="#programrulevariables-without-attributes" class="hash-link" aria-label="Direct link to ProgramRuleVariables without attributes" title="Direct link to ProgramRuleVariables without attributes" translate="no">​</a></h3>
+<p>Report will highlight all the <strong>Program rule variables</strong> not configured with <strong>TrackedEntityAttribute</strong>. Report will be based on source type configuration. TrackedEntityAttribute should be provided when the source type of ProgramRuleVariable is <strong>Attribute</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="programruleactions-with-no-data-objects">ProgramRuleActions with no data Objects.<a href="#programruleactions-with-no-data-objects" class="hash-link" aria-label="Direct link to ProgramRuleActions with no data Objects." title="Direct link to ProgramRuleActions with no data Objects." translate="no">​</a></h3>
+<p>Report will highlight all the <strong>Program rule actions</strong> not configured with any Data object. Data object can be either <strong>DataElement</strong> of <strong>TrackedEntityAttribute</strong>. There are certain ProgramRuleActions which are responsible for assigning values to either dataElement or trackedEntityAttribute.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="programruleactions-with-no-notification">ProgramRuleActions with no notification<a href="#programruleactions-with-no-notification" class="hash-link" aria-label="Direct link to ProgramRuleActions with no notification" title="Direct link to ProgramRuleActions with no notification" translate="no">​</a></h3>
+<p>Report will highlight all the <strong>Program rule actions</strong> which have ProgramRuleActionType set to SENDMESSAGE/SCHEDULEMESSAGE where the configuration does not provide any link to notification.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="programruleactions-with-no-section-id">ProgramRuleActions with no section id<a href="#programruleactions-with-no-section-id" class="hash-link" aria-label="Direct link to ProgramRuleActions with no section id" title="Direct link to ProgramRuleActions with no section id" translate="no">​</a></h3>
+<p>Report will highlight all the <strong>Program rule actions</strong> which have ProgramRuleActionType set to <strong>HIDESECTION</strong> but configuration does not provide any section id.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="programruleactions-with-no-program-stage-id">ProgramRuleActions with no program stage id<a href="#programruleactions-with-no-program-stage-id" class="hash-link" aria-label="Direct link to ProgramRuleActions with no program stage id" title="Direct link to ProgramRuleActions with no program stage id" translate="no">​</a></h3>
+<p>Report will highlight all the <strong>Program rule actions</strong> which have ProgramRuleActionType set to <strong>HIDEPROGRAMSTAGE</strong> but configuration does not provide any program stage id.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="invalid-program-indicator-expression">Invalid program indicator expression<a href="#invalid-program-indicator-expression" class="hash-link" aria-label="Direct link to Invalid program indicator expression" title="Direct link to Invalid program indicator expression" translate="no">​</a></h3>
+<p>Reports all the violations in program indicator expression caused by invalid <strong>DataElement</strong> or invalid <strong>TrackedEntityAttribute</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="invalid-program-indicator-filter-expression">Invalid program indicator filter expression<a href="#invalid-program-indicator-filter-expression" class="hash-link" aria-label="Direct link to Invalid program indicator filter expression" title="Direct link to Invalid program indicator filter expression" translate="no">​</a></h3>
+<p>Reports all the violations in program indicator filter expression caused by invalid <strong>DataElement</strong> or invalid <strong>TrackedEntityAttribute</strong>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tracked-entity-attributes-having-a-suboptimal-search-configuration">Tracked entity attributes having a suboptimal search configuration<a href="#tracked-entity-attributes-having-a-suboptimal-search-configuration" class="hash-link" aria-label="Direct link to Tracked entity attributes having a suboptimal search configuration" title="Direct link to Tracked entity attributes having a suboptimal search configuration" translate="no">​</a></h3>
+<p>Reports all tracked entity attributes with suboptimal configuration, which could potentially result in slower search performance when searching for tracked entities using those attributes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="partial-trigram-indexes-on-trackedentityattributevalue-in-sync-with-the-tracked-entity-attribute">Partial trigram indexes on trackedentityattributevalue in sync with the tracked entity attribute<a href="#partial-trigram-indexes-on-trackedentityattributevalue-in-sync-with-the-tracked-entity-attribute" class="hash-link" aria-label="Direct link to Partial trigram indexes on trackedentityattributevalue in sync with the tracked entity attribute" title="Direct link to Partial trigram indexes on trackedentityattributevalue in sync with the tracked entity attribute" translate="no">​</a></h3>
+<p>Reports all tracked entity attributes that are not in sync with the trigram index in the database. This means that some indexes may need to be created, deleted, or both.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tracked-entity-attributes-with-a-partial-trigram-index-created">Tracked entity attributes with a partial trigram index created<a href="#tracked-entity-attributes-with-a-partial-trigram-index-created" class="hash-link" aria-label="Direct link to Tracked entity attributes with a partial trigram index created" title="Direct link to Tracked entity attributes with a partial trigram index created" translate="no">​</a></h3>
+<p>Reports all tracked entity attributes that have a partial trigram index in the <code>trackedentityattributevalue</code> table.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="maintenance">Maintenance<a href="#maintenance" class="hash-link" aria-label="Direct link to Maintenance" title="Direct link to Maintenance" translate="no">​</a></h2>
+<p>Table: Data maintenance functions in the Data Administration app</p>
+<table><thead><tr><th>Function</th><th>Description</th></tr></thead><tbody><tr><td>Clear analytics tables</td><td>Completely empties the analytics tables. These tables are used to generate aggregate data for the pivot tables, GIS and reports.</td></tr><tr><td>Analyze analytics tables</td><td>Performs a PostgreSQL <code>analyze</code> operation on all analytics tables.</td></tr><tr><td>Remove zero data values</td><td>Removes zero data values from the database. Values registered for data elements with aggregation operator average is not removed, as such values will be significant when aggregating the data, contrary to values registered for data elements with aggregation operator sum. Reducing the number of data values will improve system performance.</td></tr><tr><td>Permanently remove soft deleted data values / events / enrollments / tracked entity instances</td><td>When a data value is deleted in DHIS2, the system will mark the corresponding database row as deleted, and not actually delete the row. Running this maintenance function will physically remove these data value rows from the database.</td></tr><tr><td>Prune periods</td><td>Removes all periods which have no registered data values. Reducing the number of periods will improve system performance.</td></tr><tr><td>Remove expired invitations</td><td>Will delete users which represent user account invitations that now have gone past their expiry date.</td></tr><tr><td>Drop SQL views</td><td>DHIS2 lets you set up and manage SQL views as system objects with corresponding database SQL views. Running this maintenance function will drop underlying SQL views for all system views. Use the <strong>Create SQL views</strong> function to recreate these SQL views.</td></tr><tr><td>Create SQL views</td><td>Recreates all SQL views in the database.</td></tr><tr><td>Update category option combinations</td><td>Rebuilds the category option combinations. This may be required after altering the category options which belong to a given category.</td></tr><tr><td>Update organisation unit paths</td><td>The organisation unit table in the DHIS2 database has a column &quot;path&quot; which contains a concatenated string of all ancestors in the hierarchy for each organisation unit. Running this maintenance function will update and ensure that these values are in sync with the current organisation unit hierarchy. This column is managed by DHIS2, but a manual update might be useful when doing data loading directly in the database.</td></tr><tr><td>Clear application cache</td><td>Clears the system cache.</td></tr><tr><td>Reload apps</td><td>Manually reloads and detects installed DHIS2 apps. The installed apps are also detected when the system starts and when installing or uninstall apps.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="resource-tables">Resource tables<a href="#resource-tables" class="hash-link" aria-label="Direct link to Resource tables" title="Direct link to Resource tables" translate="no">​</a></h2>
+<p>Resource tables are supporting tables that are used during analysis of
+data. One would typically join the contents of these tables with the
+data value table when doing queries from third-party applications like
+Microsoft Excel. They are also used extensively by the analysis modules
+of DHIS2. Regeneration of the resource tables should only be done once
+all data integrity issues are resolved. The resource tables are also
+generated automatically, every time the analytics process is run by the
+system.</p>
+<ul>
+<li class="">
+<p>Organisation unit structure (analytics_rs_orgunitstructure)</p>
+<p>This table should be regenerated any time there have been any
+changes made to the organisational unit hierarchy. This table
+provides information about the organisation unit hierarchy. It has
+one row for each organisation unit, one column for each organisation
+unit level and the organisation unit identifiers for all parents in
+the lineage as values.</p>
+</li>
+<li class="">
+<p>Data element group set structure (analytics_rs_dataelementgroupsetstructure)</p>
+<p>This table provides information about which data elements are
+members of which data element group sets. The table has one row for
+each data element, one column for each data element group set and
+the names of the data element group as values.</p>
+</li>
+<li class="">
+<p>Indicator group set structure (analytics_rs_indicatorgroupsetstructure)</p>
+<p>This table provides information about which indicators are members
+of which indicator group sets. The table has one row for each
+indicator, one column for each indicator group set and the names of
+the indicator group as values.</p>
+</li>
+<li class="">
+<p>Organisation unit group set structure
+(analytics_rs_organisationunitgroupsetstructure)</p>
+<p>This table provides information about which organisation units are
+members of which organisation unit group sets. The table has one row
+for each organisation unit, one column for each organisation unit
+group set and the names of the organisation unit groups as values.</p>
+</li>
+<li class="">
+<p>Category structure (analytics_rs_categorystructure)</p>
+<p>This table provides information about which data elements are
+members of which categories. The table has one row for each data
+element, one column for each category and the names of the category
+options as values.</p>
+</li>
+<li class="">
+<p>Data element category option combo name (analytics_rs_categoryoptioncomboname)</p>
+<p>This table should be regenerated any time there have been changes
+made to the category combination names. It contains readable names
+for the various combinations of categories.</p>
+</li>
+<li class="">
+<p>Data element structure (analytics_rs_dataelementstructure)</p>
+<p>This table provides information about all data elements and which
+period type (frequency) they capture data at. The period type is
+determined through the data set membership and hence relies on data
+elements to be member of data sets with similar period types to have
+a defined behaviour.</p>
+</li>
+<li class="">
+<p>Date periods structure (analytics_rs_dateperiodstructure)</p>
+<p>This table provides information about all periods and which period
+type they are associated with. For each period type with lower
+frequency than itself, it contains information about which period it
+will fall within.</p>
+</li>
+<li class="">
+<p>Periods structure (analytics_rs_periodstructure)</p>
+<p>Similar to <code>analytics_rs_dateperiodstructure</code>, containing a scoped set of
+periods more adapted for aggregated analytics.
+It&#x27;s based on <code>period</code> and <code>periodtype</code> tables.</p>
+</li>
+<li class="">
+<p>Data element category option combinations
+(analytics_rs_dataelementcategoryoptioncombo)</p>
+<p>This table provides a mapping between data elements and all possible
+category option combinations.</p>
+</li>
+<li class="">
+<p>Data set organisation unit category (analytics_rs_datasetorganisationunitcategory)</p>
+<p>This table provides information related to data sets, organisation units
+and its category option combinations associated. If no association is found,
+it uses the default category option combo.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="analytics-tables-management">Analytics tables management<a href="#analytics-tables-management" class="hash-link" aria-label="Direct link to Analytics tables management" title="Direct link to Analytics tables management" translate="no">​</a></h2>
+<p>DHIS2 generates database tables which the system then uses as basis for
+various analytics functions. These tables are also valuable if you write
+advanced SQL reports. In the <strong>Data Administration</strong> app, you can execute the tables
+generation immediately. If you want to schedule them to be executed at regular intervals,
+this can be done in the <strong>Scheduler</strong> app. This means that you can refresh recent analytics on
+demand and see updated pivot tables without waiting for all of the past years data to
+re-process.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>You can also generate the tables through the web API. This task is
+typically performed by a system administrator.</p>
+</blockquote>
+<ol>
+<li class="">
+<p>Open the <strong>Data Administration</strong> app and click <strong>Analytics Tables</strong>.</p>
+</li>
+<li class="">
+<p>Select the parts of the analytics process you want to skip:</p>
+<ul>
+<li class="">
+<p><strong>Skip generation of resource tables</strong></p>
+</li>
+<li class="">
+<p><strong>Skip generation of aggregate data and completeness data</strong></p>
+</li>
+<li class="">
+<p><strong>Skip generation of event data</strong></p>
+</li>
+<li class="">
+<p><strong>Skip generation of enrollment data</strong></p>
+</li>
+<li class="">
+<p><strong>Skip generation of organisation unit ownership data</strong></p>
+</li>
+</ul>
+</li>
+<li class="">
+<p>Select <strong>Number of last years of data to include</strong>.  (If 0 is selected,
+then you will run latest or continuous analytics, as defined in
+<a class="" href="/docs/Implementation Guide/admin/scheduling.html#scheduling_continuous_analytics_table">Continuous analytics table</a>.)</p>
+</li>
+<li class="">
+<p>Click <strong>Start export</strong>.</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-statistics">Data statistics<a href="#data-statistics" class="hash-link" aria-label="Direct link to Data statistics" title="Direct link to Data statistics" translate="no">​</a></h2>
+<p>The data statistics module provides an overview of the number of objects
+stored in the DHIS2 database.</p>
+<p><img decoding="async" loading="lazy" src="/assets/images/data_stats-e9e509567e62c781e5282f59307f4a5e.png" width="1256" height="965" class="img_ev3q"></p>
+<p>The total number of each type of object is presented in a series of
+tables with summary statistics of each object.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="lock-exceptions">Lock exceptions<a href="#lock-exceptions" class="hash-link" aria-label="Direct link to Lock exceptions" title="Direct link to Lock exceptions" translate="no">​</a></h2>
+<p>Lock exceptions provide fine-grained control over exemption from a
+locked data set. After the expiry of the data set, data entry will be
+denied by default, unless an exception has been granted through the Lock
+exception interface.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="adding-a-lock-exception">Adding a lock exception<a href="#adding-a-lock-exception" class="hash-link" aria-label="Direct link to Adding a lock exception" title="Direct link to Adding a lock exception" translate="no">​</a></h3>
+<p>By granting a lock exception, data entry will be enabled even after the
+expiry period of the data set has passed.</p>
+<ol>
+<li class="">Open the <strong>Data Administration</strong> app and click <strong>Lock Exception</strong>.</li>
+<li class="">Click <strong>Add lock exception</strong> at the top of the page</li>
+<li class="">Select the desired data set, organisation units and time period (see
+screenshot below)</li>
+<li class="">Click <strong>Add lock exception</strong></li>
+</ol>
+<p><img decoding="async" loading="lazy" src="/assets/images/create_lock_exception-37f9f2c78f3be1c2c56c016e056358ea.png" width="1819" height="755" class="img_ev3q"></p>
+<p>In the example above, a data lock exception would be created for &quot;Bo&quot; for the
+&quot;ART monthly summary&quot; dataset for &quot;February 2014&quot;.</p>
+<p>In order to run this function, no extra authority is needed.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="min-max-value-generation">Min-Max Value Generation<a href="#min-max-value-generation" class="hash-link" aria-label="Direct link to Min-Max Value Generation" title="Direct link to Min-Max Value Generation" translate="no">​</a></h2>
+<p>This administrative function can be used to generate min-max values,
+which are used as part of the data quality and validation process for
+specific organization units and data sets. Simply select the dataset
+from the left hand frame, and then select the required organisation
+units to generate the min-max values for from the organisational units
+selector on the right. Press the &quot;Generate&quot; button to generate or
+regenerate all min-max values. Press &quot;Remove&quot; to remove all min-max
+values which are currently stored in the database. In order to run this
+function, the user MUST have the authority <code>F_GENERATE_MIN_MAX_VALUES</code>.</p>
+<p><img decoding="async" loading="lazy" src="/assets/images/min_max_value_generation-738117f48521325b293739d17f1b9d8d.png" width="1374" height="700" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cache-statistics">Cache Statistics<a href="#cache-statistics" class="hash-link" aria-label="Direct link to Cache Statistics" title="Direct link to Cache Statistics" translate="no">​</a></h2>
+<p>This option is for system administrators only to use. The cache
+statistics shows the status of the application level cache. The
+application level cache refers to the objects and query results that the
+application is caching in order to speed up performance. If the database
+has been modified directly the application cache needs to be cleared for
+it to take effect.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Implementation Guide/admin/configure-metadata"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Configure metadata</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Implementation Guide/admin/data-approval"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Data approval overview</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#data-integrity" class="table-of-contents__link toc-highlight">Data integrity</a><ul><li><a href="#data-elements-without-data-set" class="table-of-contents__link toc-highlight">Data elements without data set</a></li><li><a href="#data-elements-without-groups" class="table-of-contents__link toc-highlight">Data elements without groups</a></li><li><a href="#data-elements-violating-exclusive-group-sets" class="table-of-contents__link toc-highlight">Data elements violating exclusive group sets</a></li><li><a href="#data-elements-in-data-set-but-not-in-form-or-sections" class="table-of-contents__link toc-highlight">Data elements in data set but not in form or sections</a></li><li><a href="#data-elements-assigned-to-data-sets-with-different-period-types" class="table-of-contents__link toc-highlight">Data elements assigned to data sets with different period types</a></li><li><a href="#data-sets-not-assigned-to-organisation-units" class="table-of-contents__link toc-highlight">Data sets not assigned to organisation units</a></li><li><a href="#sections-with-invalid-category-combinations" class="table-of-contents__link toc-highlight">Sections with invalid category combinations</a></li><li><a href="#indicators-with-identical-formulas" class="table-of-contents__link toc-highlight">Indicators with identical formulas</a></li><li><a href="#indicators-without-groups" class="table-of-contents__link toc-highlight">Indicators without groups</a></li><li><a href="#invalid-indicator-numerators" class="table-of-contents__link toc-highlight">Invalid indicator numerators</a></li><li><a href="#invalid-indicator-denominators" class="table-of-contents__link toc-highlight">Invalid indicator denominators</a></li><li><a href="#indicators-violating-exclusive-group-sets" class="table-of-contents__link toc-highlight">Indicators violating exclusive group sets</a></li><li><a href="#duplicate-periods" class="table-of-contents__link toc-highlight">Duplicate periods</a></li><li><a href="#organisation-units-with-cyclic-references" class="table-of-contents__link toc-highlight">Organisation units with cyclic references</a></li><li><a href="#orphaned-organisation-units" class="table-of-contents__link toc-highlight">Orphaned organisation units</a></li><li><a href="#organisation-units-without-groups" class="table-of-contents__link toc-highlight">Organisation units without groups</a></li><li><a href="#organisation-units-violating-compulsory-group-sets" class="table-of-contents__link toc-highlight">Organisation units violating compulsory group sets</a></li><li><a href="#organisation-units-violating-exclusive-group-sets" class="table-of-contents__link toc-highlight">Organisation units violating exclusive group sets</a></li><li><a href="#organisation-unit-groups-without-group-sets" class="table-of-contents__link toc-highlight">Organisation unit groups without group sets</a></li><li><a href="#validation-rules-without-groups" class="table-of-contents__link toc-highlight">Validation rules without groups</a></li><li><a href="#invalid-validation-rule-left-side-expressions" class="table-of-contents__link toc-highlight">Invalid validation rule left side expressions</a></li><li><a href="#invalid-validation-rule-right-side-expressions" class="table-of-contents__link toc-highlight">Invalid validation rule right side expressions</a></li><li><a href="#programrules-with-no-condition" class="table-of-contents__link toc-highlight">ProgramRules with no condition</a></li><li><a href="#programrules-with-no-priority" class="table-of-contents__link toc-highlight">ProgramRules with no priority</a></li><li><a href="#programrules-with-no-action" class="table-of-contents__link toc-highlight">ProgramRules with no action</a></li><li><a href="#programrulevariables-without-dataelements" class="table-of-contents__link toc-highlight">ProgramRuleVariables without dataElements</a></li><li><a href="#programrulevariables-without-attributes" class="table-of-contents__link toc-highlight">ProgramRuleVariables without attributes</a></li><li><a href="#programruleactions-with-no-data-objects" class="table-of-contents__link toc-highlight">ProgramRuleActions with no data Objects.</a></li><li><a href="#programruleactions-with-no-notification" class="table-of-contents__link toc-highlight">ProgramRuleActions with no notification</a></li><li><a href="#programruleactions-with-no-section-id" class="table-of-contents__link toc-highlight">ProgramRuleActions with no section id</a></li><li><a href="#programruleactions-with-no-program-stage-id" class="table-of-contents__link toc-highlight">ProgramRuleActions with no program stage id</a></li><li><a href="#invalid-program-indicator-expression" class="table-of-contents__link toc-highlight">Invalid program indicator expression</a></li><li><a href="#invalid-program-indicator-filter-expression" class="table-of-contents__link toc-highlight">Invalid program indicator filter expression</a></li><li><a href="#tracked-entity-attributes-having-a-suboptimal-search-configuration" class="table-of-contents__link toc-highlight">Tracked entity attributes having a suboptimal search configuration</a></li><li><a href="#partial-trigram-indexes-on-trackedentityattributevalue-in-sync-with-the-tracked-entity-attribute" class="table-of-contents__link toc-highlight">Partial trigram indexes on trackedentityattributevalue in sync with the tracked entity attribute</a></li><li><a href="#tracked-entity-attributes-with-a-partial-trigram-index-created" class="table-of-contents__link toc-highlight">Tracked entity attributes with a partial trigram index created</a></li></ul></li><li><a href="#maintenance" class="table-of-contents__link toc-highlight">Maintenance</a></li><li><a href="#resource-tables" class="table-of-contents__link toc-highlight">Resource tables</a></li><li><a href="#analytics-tables-management" class="table-of-contents__link toc-highlight">Analytics tables management</a></li><li><a href="#data-statistics" class="table-of-contents__link toc-highlight">Data statistics</a></li><li><a href="#lock-exceptions" class="table-of-contents__link toc-highlight">Lock exceptions</a><ul><li><a href="#adding-a-lock-exception" class="table-of-contents__link toc-highlight">Adding a lock exception</a></li></ul></li><li><a href="#min-max-value-generation" class="table-of-contents__link toc-highlight">Min-Max Value Generation</a></li><li><a href="#cache-statistics" class="table-of-contents__link toc-highlight">Cache Statistics</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="#" class="footer__link-item">DHIS2 Community</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="#" class="footer__link-item">Blog</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 EHMIS (IHIMS Nepal). Built with Amakomaya Nepal.</div></div></div></footer></div>
+</body>
+</html>

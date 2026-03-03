@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Implementation Guide/admin/what-is-dhis2" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">What is DHIS2? | EHMIS Nepal</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.hispnp.org/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.hispnp.org/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.hispnp.org/docs/Implementation Guide/admin/what-is-dhis2"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="What is DHIS2? | EHMIS Nepal"><meta data-rh="true" name="description" content="After reading this chapter you will be able to understand:"><meta data-rh="true" property="og:description" content="After reading this chapter you will be able to understand:"><link data-rh="true" rel="icon" href="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg"><link data-rh="true" rel="canonical" href="https://docs.hispnp.org/docs/Implementation Guide/admin/what-is-dhis2"><link data-rh="true" rel="alternate" href="https://docs.hispnp.org/docs/Implementation Guide/admin/what-is-dhis2" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.hispnp.org/docs/Implementation Guide/admin/what-is-dhis2" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Admin User","item":"https://docs.hispnp.org/docs/category/admin-user"},{"@type":"ListItem","position":2,"name":"What is DHIS2?","item":"https://docs.hispnp.org/docs/Implementation Guide/admin/what-is-dhis2"}]}</script><link rel="stylesheet" href="/assets/css/styles.ed364f4f.css">
+<script src="/assets/js/runtime~main.012f789d.js" defer="defer"></script>
+<script src="/assets/js/main.8f76942d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg" alt="EHIMS" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg" alt="EHIMS" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">EHIMS</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/intro">Docs  </a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro"><span title="DHIS2 EHMIS Documentation" class="linkLabel_WmDU">DHIS2 EHMIS Documentation</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/category/admin-user"><span title="Implementation Guide" class="categoryLinkLabel_W154">Implementation Guide</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/docs/category/admin-user"><span title="Admin User" class="categoryLinkLabel_W154">Admin User</span></a><button aria-label="Collapse sidebar category &#x27;Admin User&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/about-data-dimensions"><span title="About data dimensions" class="linkLabel_WmDU">About data dimensions</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/about-demo-server-live-package-and-database-design"><span title="About demo server, D2 cluster and database design" class="linkLabel_WmDU">About demo server, D2 cluster and database design</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/about-sharing-of-objects"><span title="About Sharing of Objects" class="linkLabel_WmDU">About Sharing of Objects</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/additional-data-dimensions"><span title="Additional Data Dimensions" class="linkLabel_WmDU">Additional Data Dimensions</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/analyze-data-in-pivot-tables"><span title="Analyze data in pivot tables" class="linkLabel_WmDU">Analyze data in pivot tables</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/classic-data-visualizer"><span title="Data Visualizer" class="linkLabel_WmDU">Data Visualizer</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/command-palette"><span title="Command Palette" class="linkLabel_WmDU">Command Palette</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/configure-metadata-synchronizing"><span title="Configure metadata synchronizing" class="linkLabel_WmDU">Configure metadata synchronizing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/configure-metadata"><span title="Configure metadata" class="linkLabel_WmDU">Configure metadata</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/data-administration"><span title="Data Administration" class="linkLabel_WmDU">Data Administration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/data-approval"><span title="Data approval overview" class="linkLabel_WmDU">Data approval overview</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/data-exchange"><span title="Using the Data Exchange app" class="linkLabel_WmDU">Using the Data Exchange app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/datastore-management"><span title="Datastore Management App" class="linkLabel_WmDU">Datastore Management App</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/dhis2-frequently-asked-questions"><span title="DHIS2 Frequently Asked Questions" class="linkLabel_WmDU">DHIS2 Frequently Asked Questions</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/dhis2-glossary"><span title="DHIS2 Glossary" class="linkLabel_WmDU">DHIS2 Glossary</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/dhis2-tutorials"><span title="DHIS2 Tutorials" class="linkLabel_WmDU">DHIS2 Tutorials</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/getting-started-help-to-navigate-the-user-guide"><span title="Getting started - help to navigate the user guide" class="linkLabel_WmDU">Getting started - help to navigate the user guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/importexport-app"><span title="Import/Export App" class="linkLabel_WmDU">Import/Export App</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/"><span title="Use" class="linkLabel_WmDU">Use</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/login-flow"><span title="DHIS2 Login Flow with Email 2FA" class="linkLabel_WmDU">DHIS2 Login Flow with Email 2FA</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/manage-users-user-roles-and-user-groups"><span title="Manage users, user roles and user groups" class="linkLabel_WmDU">Manage users, user roles and user groups</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/messaging"><span title="Messaging" class="linkLabel_WmDU">Messaging</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/mobile"><span title="Mobile" class="linkLabel_WmDU">Mobile</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/personal-access-tokens"><span title="Personal access tokens" class="linkLabel_WmDU">Personal access tokens</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/relationship-model"><span title="Relationship model" class="linkLabel_WmDU">Relationship model</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/release-and-upgrade-notes"><span title="Release and upgrade notes" class="linkLabel_WmDU">Release and upgrade notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/scheduling"><span title="Scheduling" class="linkLabel_WmDU">Scheduling</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/sms-configuration"><span title="Configuring SMS" class="linkLabel_WmDU">Configuring SMS</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/system-settings"><span title="System settings" class="linkLabel_WmDU">System settings</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/user-authorities"><span title="User authorities" class="linkLabel_WmDU">User authorities</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-reporting-functionality"><span title="Reporting functionality in the reports app" class="linkLabel_WmDU">Reporting functionality in the reports app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-the-event-capture-app"><span title="Using the Event Capture app" class="linkLabel_WmDU">Using the Event Capture app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-the-gis-app"><span title="Using the GIS app" class="linkLabel_WmDU">Using the GIS app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-the-tracker-capture-app"><span title="Using the Tracker Capture app" class="linkLabel_WmDU">Using the Tracker Capture app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/Implementation Guide/admin/what-is-dhis2"><span title="What is DHIS2?" class="linkLabel_WmDU">What is DHIS2?</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/category/android"><span title="Android" class="categoryLinkLabel_W154">Android</span></a><button aria-label="Expand sidebar category &#x27;Android&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/Implementation Guide/metadata/about-metadata"><span title="metadata" class="categoryLinkLabel_W154">metadata</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/Implementation Guide/sysadmin/"><span title="Installation" class="categoryLinkLabel_W154">Installation</span></a><button aria-label="Expand sidebar category &#x27;Installation&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/User Operations Manual/Central Government/introduction"><span title="User Operations Manual" class="categoryLinkLabel_W154">User Operations Manual</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Implementation Guide</span></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/category/admin-user"><span>Admin User</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">What is DHIS2?</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>What is DHIS2?</h1></header>
+<p>After reading this chapter you will be able to understand:</p>
+<ul>
+<li class="">
+<p>What is DHIS2 and what purpose it serves with respect to health
+information systems (HIS)?</p>
+</li>
+<li class="">
+<p>What are the major technological considerations when it comes to
+deploying DHIS2, and what are the options for extending DHIS2
+with new modules?</p>
+</li>
+<li class="">
+<p>What is the difference between patient based and aggregate data?</p>
+</li>
+<li class="">
+<p>What are some of the benefits and challenges with using Free and
+Open Source Software (FOSS) for HIS?</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="dhis2-background">DHIS2 Background<a href="#dhis2-background" class="hash-link" aria-label="Direct link to DHIS2 Background" title="Direct link to DHIS2 Background" translate="no">​</a></h2>
+<p>DHIS2 is a tool for collection, validation, analysis, and presentation
+of aggregate and patient-based statistical data, tailored (but not
+limited) to integrated health information management activities. It is a
+generic tool rather than a pre-configured database application, with an
+open meta-data model and a flexible user interface that allows the user
+to design the contents of a specific information system without the need
+for programming. DHIS2 is a modular web-based software package built
+with free and open source Java frameworks.</p>
+<p>DHIS2 is open source software released under the BSD license and can be
+obtained at no cost. It runs on any platform with a Java Runtime
+Environment (JRE 7 or higher) installed.</p>
+<p>DHIS2 is developed by the Health Information Systems Programme (HISP) as
+an open and globally distributed process with developers currently in
+India, Vietnam, Tanzania, Ireland, and Norway. The development is
+coordinated by the University of Oslo with support from NORAD and other
+donors.</p>
+<p>The DHIS2 software is used in more than 40 countries in Africa, Asia,
+and Latin America, and countries that have adopted DHIS2 as their
+nation-wide HIS software include Kenya, Tanzania, Uganda, Rwanda, Ghana,
+Liberia, and Bangladesh. A rapidly increasing number of countries and
+organisations are starting up new deployments.</p>
+<p>The documentation provided herewith, will attempt to provide a
+comprehensive overview of the application. Given the abstract nature of
+the application, this manual will not serve as a complete step-by-step
+guide of how to use the application in each and every circumstance, but
+rather will seek to provide illustrations and examples of how DHIS2 can
+be implemented in a variety of situations through generalized examples.</p>
+<p>Before implementing DHIS2 in a new setting, we highly recommend reading
+the DHIS2 Implementation Guide (a separate manual from this one), also
+available at the main DHIS2 <a href="http://dhis2.org/documentation/" target="_blank" rel="noopener noreferrer" class="">website</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-features-and-purpose-of-dhis2">Key features and purpose of DHIS2<a href="#key-features-and-purpose-of-dhis2" class="hash-link" aria-label="Direct link to Key features and purpose of DHIS2" title="Direct link to Key features and purpose of DHIS2" translate="no">​</a></h2>
+<p>The key features and purpose of DHIS2 can be summarised as follows:</p>
+<ul>
+<li class="">
+<p>Provide a comprehensive data management solution based on data
+warehousing principles and a modular structure which can easily be
+customised to the different requirements of a management information
+system, supporting analysis at different levels of the
+organisational hierarchy.</p>
+</li>
+<li class="">
+<p>Customisation and local adaptation through the user interface. No
+programming required to start using DHIS2 in a new setting (country,
+region, district etc.).</p>
+</li>
+<li class="">
+<p>Provide data entry tools which can either be in the form of standard
+lists or tables, or can be customised to replicate paper forms.</p>
+</li>
+<li class="">
+<p>Provide different kinds of tools for data validation and improvement
+of data quality.</p>
+</li>
+<li class="">
+<p>Provide easy to use - one-click reports with charts and tables for
+selected indicators or summary reports using the design of the data
+collection tools. Allow for integration with popular external report
+design tools (e.g. JasperReports) to add more custom or advanced
+reports.</p>
+</li>
+<li class="">
+<p>Flexible and dynamic (on-the-fly) data analysis in the analytics
+modules (i.e. GIS, PivotTables,Data Visualizer, Event reports, etc).</p>
+</li>
+<li class="">
+<p>A user-specific dashboard for quick access to the relevant
+monitoring and evaluation tools including indicator charts and links
+to favourite reports, maps and other key resources in the system.</p>
+</li>
+<li class="">
+<p>Easy to use user-interfaces for metadata management e.g. for
+adding/editing datasets or health facilities. No programming needed
+to set up the system in a new setting.</p>
+</li>
+<li class="">
+<p>Functionality to design and modify calculated indicator formulas.</p>
+</li>
+<li class="">
+<p>User management module for passwords, security, and fine-grained
+access control (user roles).</p>
+</li>
+<li class="">
+<p>Messages can be sent to system users for feedback and notifications.
+Messages can also be delivered to email and SMS.</p>
+</li>
+<li class="">
+<p>Users can share and discuss their data in charts and reports using
+Interpretations, enabling an active information-driven user
+community.</p>
+</li>
+<li class="">
+<p>Functionalities of export-import of data and metadata, supporting
+synchronisation of offline installations as well as interoperability
+with other applications.</p>
+</li>
+<li class="">
+<p>Using the DHIS2 Web-API , allow for integration with external
+software and extension of the core platform through the use of
+custom apps.</p>
+</li>
+<li class="">
+<p>Further modules can be developed and integrated as per user needs,
+either as part of the DHIS2 portal user interface or a more
+loosely-coupled external application interacting through the DHIS2
+Web-API.</p>
+</li>
+</ul>
+<p>In summary, DHIS2 provides a comprehensive HIS solution for the
+reporting and analysis needs of health information users at any
+level.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="use-of-dhis2-in-his-data-collection-processing-interpretation-and-analysis">Use of DHIS2 in HIS: data collection, processing, interpretation, and analysis.<a href="#use-of-dhis2-in-his-data-collection-processing-interpretation-and-analysis" class="hash-link" aria-label="Direct link to Use of DHIS2 in HIS: data collection, processing, interpretation, and analysis." title="Direct link to Use of DHIS2 in HIS: data collection, processing, interpretation, and analysis." translate="no">​</a></h2>
+<p>The wider context of HIS can be comprehensively described through the
+information cycle presented in Figure 1.1 below. The information cycle
+pictorially depicts the different components, stages and processes
+through which the data is collected, checked for quality, processed,
+analysed and used.</p>
+<p><img decoding="async" loading="lazy" alt="The health information
+cycle" src="/assets/images/dhis2_information_cycle-b4131b3e6d6576469263e1cd3811c4e6.png" width="1001" height="660" class="img_ev3q"></p>
+<p>DHIS2 supports the different facets of the information cycle including:</p>
+<ul>
+<li class="">
+<p>Collecting data.</p>
+</li>
+<li class="">
+<p>Running quality checks.</p>
+</li>
+<li class="">
+<p>Data access at multiple levels.</p>
+</li>
+<li class="">
+<p>Reporting.</p>
+</li>
+<li class="">
+<p>Making graphs and maps and other forms of analysis.</p>
+</li>
+<li class="">
+<p>Enabling comparison across time (for example, previous months) and
+space (for example, across facilities and districts).</p>
+</li>
+<li class="">
+<p>See trends (displaying data in time series to see their min and max
+levels).</p>
+</li>
+</ul>
+<p>As a first step, DHIS2 serves as a data collection, recording and
+compilation tool, and all data (be it in numbers or text form) can be
+entered into it. Data entry can be done in lists of data elements or in
+customised user defined forms which can be developed to mimic paper
+based forms in order to ease the process of data entry.</p>
+<p>As a next step, DHIS2 can be used to increase data quality. First, at
+the point of data entry, a check can be made to see if data falls within
+acceptable range levels of minimum and maximum values for any particular
+data element. Such checking, for example, can help to identify typing
+errors at the time of data entry. Further, user can define various
+validation rules, and DHIS2 can run the data through the validation
+rules to identify violations. These types of checks help to ensure that
+data entered into the system is of good quality from the start, and can
+be improved by the people who are most familiar with it.</p>
+<p>When data has been entered and verified, DHIS2 can help to make
+different kinds of reports. The first kind are the routine reports that
+can be predefined, so that all those reports that need to be routine
+generated can be done on a click of a button. Further, DHIS2 can help in
+the generation of analytical reports through comparisons of for example
+indicators across facilities or over time. Graphs, maps, reports and
+health profiles are among the outputs that DHIS2 can produce, and these
+should routinely be produced, analysed, and acted upon by health
+managers.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="technical-background">Technical background<a href="#technical-background" class="hash-link" aria-label="Direct link to Technical background" title="Direct link to Technical background" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dhis2-as-a-platform">DHIS2 as a platform<a href="#dhis2-as-a-platform" class="hash-link" aria-label="Direct link to DHIS2 as a platform" title="Direct link to DHIS2 as a platform" translate="no">​</a></h3>
+<p>DHIS2 can be perceived as a platform on several levels. First, the
+application database is designed ground-up with flexibility in mind.
+Data structures such as data elements, organisation units, forms and
+user roles can be defined completely freely through the application user
+interface. This makes it possible for the system to be adapted to a
+multitude of locale contexts and use-cases. We have seen that DHIS2
+supports most major requirements for routine data capture and analysis
+emerging in country implementations. It also makes it possible for DHIS2
+to serve as management system for domains such as logistics, labs and
+finance.</p>
+<p>Second, due to the modular design of DHIS2 it can be extended with
+additional software modules or through custom apps. These software
+modules/apps can live side by side with the core modules of DHIS2 and
+can be integrated into the DHIS2 portal and menu system. This is a
+powerful feature as it makes it possible to extend the system with extra
+functionality when needed, typically for country specific requirements
+as earlier pointed out.</p>
+<p>The downside of the software module extensibility is that it puts
+several constraints on the development process. The developers creating
+the extra functionality are limited to the DHIS2 technology in terms of
+programming language and software frameworks, in addition to the
+constraints put on the design of modules by the DHIS2 portal solution.
+Also, these modules must be included in the DHIS2 software when the
+software is built and deployed on the web server, not dynamically during
+run-time.</p>
+<p>In order to overcome these limitations and achieve a looser coupling
+between the DHIS2 service layer and additional software artefacts, a
+REST-based API has been developed as part of DHIS2. This Web API
+complies with the rules of the REST architectural style. This implies
+that:</p>
+<ul>
+<li class="">
+<p>The Web API provides a navigable and machine-readable interface to
+the complete DHIS2 data model. For instance, one can access the full
+list of data elements, then navigate using the provided URL to a
+particular data element of interest, then navigate using the
+provided URL to the list of data sets which the data element is a
+member of.</p>
+</li>
+<li class="">
+<p>(Meta) Data is accessed through a uniform interface (URLs) using
+plain HTTP requests. There are no fancy transport formats or
+protocols involved - just the well-tested, well-understood HTTP
+protocol which is the main building block of the Web today. This
+implies that third-party developers can develop software using the
+DHIS2 data model and data without knowing the DHIS2 specific
+technology or complying with the DHIS2 design constraints.</p>
+</li>
+<li class="">
+<p>All data including meta-data, reports, maps and charts, known as
+resources in REST terminology, can be retrieved in most of the
+popular representation formats of the Web of today, such as XML,
+JSON, PDF and PNG. These formats are widely supported in
+applications and programming languages and gives third-party
+developers a wide range of implementation options.</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="understanding-platform-independence">Understanding platform independence<a href="#understanding-platform-independence" class="hash-link" aria-label="Direct link to Understanding platform independence" title="Direct link to Understanding platform independence" translate="no">​</a></h3>
+<p>All computers have an Operating System (OS) to manage it and the
+programs running it. The operating system serves as the middle layer
+between the software application, such as DHIS2, and the hardware, such
+as the CPU and RAM. DHIS2 runs on the Java Virtual Machine, and can
+therefore run on any operating system which supports Java. Platform
+independence implies that the software application can run on ANY OS -
+Windows, Linux, Macintosh etc. DHIS2 is platform independent and thus
+can be used in many different contexts depending on the exact
+requirements of the operating system to be used.</p>
+<p>Additionally, and perhaps most importantly, since DHIS2 is a browser-based
+application, the only real requirement to interact with the system is
+with a web browser. DHIS2 supports most web browsers, although currently
+either Google Chrome, Mozilla Firefox or Opera are recommended.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dhis2-server-hosting">DHIS2 server hosting<a href="#dhis2-server-hosting" class="hash-link" aria-label="Direct link to DHIS2 server hosting" title="Direct link to DHIS2 server hosting" translate="no">​</a></h3>
+<p>Hosting DHIS2 on a national scale is a considerable undertaking which requires planning, provisioning, monitoring and management of potentially complex hardware and/or cloud resources.  For a full discussion of the various tradeoffs of different approaches see the <a href="#server-hosting" class="">server hosting</a> section of the DHIS2 implementation guide.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="difference-between-aggregated-and-patient-data-in-a-his">Difference between Aggregated and Patient data in a HIS<a href="#difference-between-aggregated-and-patient-data-in-a-his" class="hash-link" aria-label="Direct link to Difference between Aggregated and Patient data in a HIS" title="Direct link to Difference between Aggregated and Patient data in a HIS" translate="no">​</a></h2>
+<p><em>Patient data</em> is data relating to a single patient, such as his/her
+diagnosis, name, age, earlier medical history etc. This data is
+typically based on a single patient-health care worker interaction. For
+instance, when a patient visits a health care clinic, a variety of
+details may be recorded, such as the patient&#x27;s temperature, their
+weight, and various blood tests. Should this patient be diagnosed as
+having &quot;Vitamin B 12 deficiency anaemia, unspecified&quot; corresponding to
+ICD-10 code D51.9, this particular interaction might eventually get
+recorded as an instance of &quot;Anaemia&quot; in an aggregate based system.
+Patient based data is important when you want to track longitudinally
+the progress of a patient over time. For example, if we want to track
+how a patient is adhering to and responding to the process of TB
+treatment (typically taking place over 6-9 months), we would need
+patient based data.</p>
+<p><em>Aggregated data</em> is the consolidation of data relating to multiple
+patients, and therefore cannot be traced back to a specific patient.
+They are merely counts, such as incidences of Malaria, TB, or other
+diseases. Typically, the routine data that a health facility deals with
+is this kind of aggregated statistics, and is used for the generation of
+routine reports and indicators, and most importantly, strategic planning
+within the health system. Aggregate data cannot provide the type of
+detailed information which patient level data can, but is crucial for
+planning and guidance of the performance of health systems.</p>
+<p>In between the two you have case-based data, or anonymous &quot;patient&quot;
+data. A lot of details can be collected about a specific health event
+without necessarily having to identify the patient it involved.
+Inpatient or outpatient visits, a new case of cholera, a maternal death
+etc. are common use-cases where one would like to collect a lot more
+detail that just adding to the total count of cases, or visits. This
+data is often collected in line-listing type of forms, or in more
+detailed audit forms. It is different from aggregate data in the sense
+that it contains many details about a specific event, whereas the
+aggregate data would count how many events of a certain type, e.g. how
+many outpatient visits with principal diagnosis &quot;Malaria&quot;, or how many
+maternal deaths where the deceased did not attend ANC, or how many
+cholera outbreaks for children under 5 years. In DHIS2 this data is
+collected through programs of the type single event without
+registration.</p>
+<p>Patient data is highly confidential and therefore must be protected so
+that no one other than doctors can get it. When in paper, it must be
+properly stored in a secure place. For computers, patient data needs
+secure systems with passwords, restrained access and audit logs.</p>
+<p>Security concerns for aggregated data are not as crucial as for patient
+data, as it is usually impossible to identify a particular person to a
+aggregate statistic . However, data can still be misused and
+misinterpreted by others, and should not be distributed without adequate
+data dissemination policies in place.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="free-and-open-source-software-foss-benefits-and-challenges">Free and Open Source Software (FOSS): benefits and challenges<a href="#free-and-open-source-software-foss-benefits-and-challenges" class="hash-link" aria-label="Direct link to Free and Open Source Software (FOSS): benefits and challenges" title="Direct link to Free and Open Source Software (FOSS): benefits and challenges" translate="no">​</a></h2>
+<p>Software carries the instructions that tell a computer how to operate.
+The human authored and human readable form of those instructions is
+called source code. Before the computer can actually execute the
+instructions, the source code must be translated into a machine readable
+(binary) format, called the object code. All distributed software
+includes the object code, but FOSS makes the source code available as
+well.</p>
+<p>Proprietary software owners license their copyrighted object code to a
+user, which allows the user to run the program. FOSS programs, on the
+other hand, license both the object and the source code, permitting the
+user to run, modify and possibly redistribute the programs. With access
+to the source code, the users have the freedom to run the program for
+any purpose, redistribute, probe, adapt, learn from, customise the
+software to suit their needs, and release improvements to the public for
+the good of the community. Hence, some FOSS is also known as free
+software, where “free” refers, first and foremost, to the above freedoms
+rather than in the monetary sense of the word.</p>
+<p>Within the public health sector, FOSS can potentially have a range of
+benefits, including:</p>
+<ul>
+<li class="">
+<p>Lower costs as it does not involve paying for prohibitive license
+costs.</p>
+</li>
+<li class="">
+<p>Given the information needs for the health sector are constantly
+changing and evolving, there is a need for the user to have the
+freedom to make the changes as per the user requirements. This is
+often limited in proprietary systems.</p>
+</li>
+<li class="">
+<p>Access to source code to enable integration and interoperability. In
+the health sector interoperability between different software
+applications is becoming increasingly important, meaning enabling
+two or more systems to communicate metadata and data. This work is a
+lot easier, and sometimes dependent on the source code being
+available to the developers that create the integration. This
+availability is often not possible in the case of proprietary
+software. And when it is, it comes at a high cost and contractual
+obligations.</p>
+</li>
+<li class="">
+<p>FOSS applications like DHIS2 typically are supported by a global
+network of developers, and thus have access to cutting edge research
+and development knowledge.</p>
+</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Implementation Guide/admin/using-the-tracker-capture-app"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Using the Tracker Capture app</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/category/android"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Android</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#dhis2-background" class="table-of-contents__link toc-highlight">DHIS2 Background</a></li><li><a href="#key-features-and-purpose-of-dhis2" class="table-of-contents__link toc-highlight">Key features and purpose of DHIS2</a></li><li><a href="#use-of-dhis2-in-his-data-collection-processing-interpretation-and-analysis" class="table-of-contents__link toc-highlight">Use of DHIS2 in HIS: data collection, processing, interpretation, and analysis.</a></li><li><a href="#technical-background" class="table-of-contents__link toc-highlight">Technical background</a><ul><li><a href="#dhis2-as-a-platform" class="table-of-contents__link toc-highlight">DHIS2 as a platform</a></li><li><a href="#understanding-platform-independence" class="table-of-contents__link toc-highlight">Understanding platform independence</a></li><li><a href="#dhis2-server-hosting" class="table-of-contents__link toc-highlight">DHIS2 server hosting</a></li></ul></li><li><a href="#difference-between-aggregated-and-patient-data-in-a-his" class="table-of-contents__link toc-highlight">Difference between Aggregated and Patient data in a HIS</a></li><li><a href="#free-and-open-source-software-foss-benefits-and-challenges" class="table-of-contents__link toc-highlight">Free and Open Source Software (FOSS): benefits and challenges</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="#" class="footer__link-item">DHIS2 Community</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="#" class="footer__link-item">Blog</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 EHMIS (IHIMS Nepal). Built with Amakomaya Nepal.</div></div></div></footer></div>
+</body>
+</html>

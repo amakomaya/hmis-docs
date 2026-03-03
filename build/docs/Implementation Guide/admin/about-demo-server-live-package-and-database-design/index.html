@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Implementation Guide/admin/about-demo-server-live-package-and-database-design" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">About demo server, D2 cluster and database design | EHMIS Nepal</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.hispnp.org/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.hispnp.org/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.hispnp.org/docs/Implementation Guide/admin/about-demo-server-live-package-and-database-design"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="About demo server, D2 cluster and database design | EHMIS Nepal"><meta data-rh="true" name="description" content="Using the DHIS2 demo server"><meta data-rh="true" property="og:description" content="Using the DHIS2 demo server"><link data-rh="true" rel="icon" href="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg"><link data-rh="true" rel="canonical" href="https://docs.hispnp.org/docs/Implementation Guide/admin/about-demo-server-live-package-and-database-design"><link data-rh="true" rel="alternate" href="https://docs.hispnp.org/docs/Implementation Guide/admin/about-demo-server-live-package-and-database-design" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.hispnp.org/docs/Implementation Guide/admin/about-demo-server-live-package-and-database-design" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Admin User","item":"https://docs.hispnp.org/docs/category/admin-user"},{"@type":"ListItem","position":2,"name":"About demo server, D2 cluster and database design","item":"https://docs.hispnp.org/docs/Implementation Guide/admin/about-demo-server-live-package-and-database-design"}]}</script><link rel="stylesheet" href="/assets/css/styles.ed364f4f.css">
+<script src="/assets/js/runtime~main.012f789d.js" defer="defer"></script>
+<script src="/assets/js/main.8f76942d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg" alt="EHIMS" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg" alt="EHIMS" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">EHIMS</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/intro">Docs  </a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro"><span title="DHIS2 EHMIS Documentation" class="linkLabel_WmDU">DHIS2 EHMIS Documentation</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/category/admin-user"><span title="Implementation Guide" class="categoryLinkLabel_W154">Implementation Guide</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/docs/category/admin-user"><span title="Admin User" class="categoryLinkLabel_W154">Admin User</span></a><button aria-label="Collapse sidebar category &#x27;Admin User&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/about-data-dimensions"><span title="About data dimensions" class="linkLabel_WmDU">About data dimensions</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/Implementation Guide/admin/about-demo-server-live-package-and-database-design"><span title="About demo server, D2 cluster and database design" class="linkLabel_WmDU">About demo server, D2 cluster and database design</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/about-sharing-of-objects"><span title="About Sharing of Objects" class="linkLabel_WmDU">About Sharing of Objects</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/additional-data-dimensions"><span title="Additional Data Dimensions" class="linkLabel_WmDU">Additional Data Dimensions</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/analyze-data-in-pivot-tables"><span title="Analyze data in pivot tables" class="linkLabel_WmDU">Analyze data in pivot tables</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/classic-data-visualizer"><span title="Data Visualizer" class="linkLabel_WmDU">Data Visualizer</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/command-palette"><span title="Command Palette" class="linkLabel_WmDU">Command Palette</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/configure-metadata-synchronizing"><span title="Configure metadata synchronizing" class="linkLabel_WmDU">Configure metadata synchronizing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/configure-metadata"><span title="Configure metadata" class="linkLabel_WmDU">Configure metadata</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/data-administration"><span title="Data Administration" class="linkLabel_WmDU">Data Administration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/data-approval"><span title="Data approval overview" class="linkLabel_WmDU">Data approval overview</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/data-exchange"><span title="Using the Data Exchange app" class="linkLabel_WmDU">Using the Data Exchange app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/datastore-management"><span title="Datastore Management App" class="linkLabel_WmDU">Datastore Management App</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/dhis2-frequently-asked-questions"><span title="DHIS2 Frequently Asked Questions" class="linkLabel_WmDU">DHIS2 Frequently Asked Questions</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/dhis2-glossary"><span title="DHIS2 Glossary" class="linkLabel_WmDU">DHIS2 Glossary</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/dhis2-tutorials"><span title="DHIS2 Tutorials" class="linkLabel_WmDU">DHIS2 Tutorials</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/getting-started-help-to-navigate-the-user-guide"><span title="Getting started - help to navigate the user guide" class="linkLabel_WmDU">Getting started - help to navigate the user guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/importexport-app"><span title="Import/Export App" class="linkLabel_WmDU">Import/Export App</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/"><span title="Use" class="linkLabel_WmDU">Use</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/login-flow"><span title="DHIS2 Login Flow with Email 2FA" class="linkLabel_WmDU">DHIS2 Login Flow with Email 2FA</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/manage-users-user-roles-and-user-groups"><span title="Manage users, user roles and user groups" class="linkLabel_WmDU">Manage users, user roles and user groups</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/messaging"><span title="Messaging" class="linkLabel_WmDU">Messaging</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/mobile"><span title="Mobile" class="linkLabel_WmDU">Mobile</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/personal-access-tokens"><span title="Personal access tokens" class="linkLabel_WmDU">Personal access tokens</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/relationship-model"><span title="Relationship model" class="linkLabel_WmDU">Relationship model</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/release-and-upgrade-notes"><span title="Release and upgrade notes" class="linkLabel_WmDU">Release and upgrade notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/scheduling"><span title="Scheduling" class="linkLabel_WmDU">Scheduling</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/sms-configuration"><span title="Configuring SMS" class="linkLabel_WmDU">Configuring SMS</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/system-settings"><span title="System settings" class="linkLabel_WmDU">System settings</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/user-authorities"><span title="User authorities" class="linkLabel_WmDU">User authorities</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-reporting-functionality"><span title="Reporting functionality in the reports app" class="linkLabel_WmDU">Reporting functionality in the reports app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-the-event-capture-app"><span title="Using the Event Capture app" class="linkLabel_WmDU">Using the Event Capture app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-the-gis-app"><span title="Using the GIS app" class="linkLabel_WmDU">Using the GIS app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/using-the-tracker-capture-app"><span title="Using the Tracker Capture app" class="linkLabel_WmDU">Using the Tracker Capture app</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Implementation Guide/admin/what-is-dhis2"><span title="What is DHIS2?" class="linkLabel_WmDU">What is DHIS2?</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/category/android"><span title="Android" class="categoryLinkLabel_W154">Android</span></a><button aria-label="Expand sidebar category &#x27;Android&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/Implementation Guide/metadata/about-metadata"><span title="metadata" class="categoryLinkLabel_W154">metadata</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/Implementation Guide/sysadmin/"><span title="Installation" class="categoryLinkLabel_W154">Installation</span></a><button aria-label="Expand sidebar category &#x27;Installation&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/User Operations Manual/Central Government/introduction"><span title="User Operations Manual" class="categoryLinkLabel_W154">User Operations Manual</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Implementation Guide</span></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/category/admin-user"><span>Admin User</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">About demo server, D2 cluster and database design</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>About demo server, D2 cluster and database design</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="using-the-dhis2-demo-server">Using the DHIS2 demo server<a href="#using-the-dhis2-demo-server" class="hash-link" aria-label="Direct link to Using the DHIS2 demo server" title="Direct link to Using the DHIS2 demo server" translate="no">​</a></h2>
+<p>The DHIS2 team maintains a demonstration server at
+<a href="https://play.dhis2.org/demo" target="_blank" rel="noopener noreferrer" class="">https://play.dhis2.org/demo</a>. This is by far the easiest way to try out
+DHIS2. Simply open the link in your web browser and login with username
+= admin and password = district.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>All changes on this server are deleted each night, so do not save any
+important work on this server. It is strictly for demonstration
+purposes on only!</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="spinning-up-a-local-dhis2-instance-using-d2-cluster">Spinning up a local DHIS2 instance using D2 Cluster<a href="#spinning-up-a-local-dhis2-instance-using-d2-cluster" class="hash-link" aria-label="Direct link to Spinning up a local DHIS2 instance using D2 Cluster" title="Direct link to Spinning up a local DHIS2 instance using D2 Cluster" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="running-d2-cluster">Running D2 Cluster<a href="#running-d2-cluster" class="hash-link" aria-label="Direct link to Running D2 Cluster" title="Direct link to Running D2 Cluster" translate="no">​</a></h3>
+<p>Using Docker containers to run a d2 cluster is an easy way to get started with DHIS2 on
+your local computer. This approach is appropriate for a stand-alone
+installation and demos. Simply follow the guide
+<a href="https://developers.dhis2.org/docs/guides/spin-up-local-instance" target="_blank" rel="noopener noreferrer" class="">here</a>.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="prerequisites-to-running-d2-cluster">Prerequisites to running D2 Cluster<a href="#prerequisites-to-running-d2-cluster" class="hash-link" aria-label="Direct link to Prerequisites to running D2 Cluster" title="Direct link to Prerequisites to running D2 Cluster" translate="no">​</a></h4>
+<p>You must be sure that you have installed <a href="https://classic.yarnpkg.com/en/docs/install/" target="_blank" rel="noopener noreferrer" class="">Yarn</a> and <a href="https://nodejs.org/en/" target="_blank" rel="noopener noreferrer" class="">Nodejs</a>. A current version of <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer" class="">Docker</a> must be
+installed on your machine as well. Please refer to the <a href="https://developers.dhis2.org/docs/guides/spin-up-local-instance" target="_blank" rel="noopener noreferrer" class="">guide</a> for detailed information.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="downloading-and-installing-the-server-version">Downloading and installing the server version<a href="#downloading-and-installing-the-server-version" class="hash-link" aria-label="Direct link to Downloading and installing the server version" title="Direct link to Downloading and installing the server version" translate="no">​</a></h3>
+<p>The latest stable server version can be downloaded from this
+<a href="http://stable.dhis2.org/" target="_blank" rel="noopener noreferrer" class="">website</a>. For detailed information on how to
+install it please refer to the installation chapter in the
+implementation manual.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="logging-on-to-dhis2">Logging on to DHIS2<a href="#logging-on-to-dhis2" class="hash-link" aria-label="Direct link to Logging on to DHIS2" title="Direct link to Logging on to DHIS2" translate="no">​</a></h2>
+<p>Regardless of whether you have installed the server version or ran a DHIS2 instance locally, you will use a web-browser to log on to the
+application. DHIS2 should be compatible with most modern web-browsers,
+although you will need to ensure that Java Script is enabled.</p>
+<p>To log on to the application just enter <a href="http://localhost:8080/dhis" target="_blank" rel="noopener noreferrer" class="">http://localhost:8080/dhis</a> if
+you are using the DHIS2 live package, or replace <code>localhost</code> with the
+name or IP address of the server where the server version is installed.</p>
+<p>Once you have started DHIS2, either on-line or off-line, the displayed
+screen will prompt you to enter your registered user-name and password.
+After entering the required information click on log-in button to log
+into the application. The default user name and password are &#x27;admin&#x27; and
+&#x27;district&#x27;. They should be changed immediately upon logging on the first
+time.</p>
+<p><img decoding="async" loading="lazy" src="/assets/images/login-184982c75dda786c249e02e0f03ce81e.png" width="602" height="586" class="img_ev3q"></p>
+<p>You can select the language which you wish to display DHIS2 in from the
+&quot;Change language&quot; dialog box at the bottom of the screen. Not all
+languages may be available.</p>
+<p>Should you have forgotten your password, you can click on the &quot;Forgot
+password?&quot; link. You must have informed DHIS2 of your email address and
+the server must be properly configured to send emails.</p>
+<p>If you want to create your own account (and the server administrator
+allows this), simply click &quot;Create an account&quot; and follow the directions
+provided.</p>
+<p>Once you have logged into DHIS2, refer to the specific sections in this
+manual for the different functionality which is available.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="logging-out-of-dhis2">Logging out of DHIS2<a href="#logging-out-of-dhis2" class="hash-link" aria-label="Direct link to Logging out of DHIS2" title="Direct link to Logging out of DHIS2" translate="no">​</a></h2>
+<p>Just click on the Profile and the click &quot;Log out&quot; the top-right corner
+of the DHIS2 menu.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="quick-intro-to-designing-a-dhis2-database">Quick intro to designing a DHIS2 database<a href="#quick-intro-to-designing-a-dhis2-database" class="hash-link" aria-label="Direct link to Quick intro to designing a DHIS2 database" title="Direct link to Quick intro to designing a DHIS2 database" translate="no">​</a></h2>
+<p>DHIS2 provides a powerful set of tools for data collection, validation,
+reporting and analysis, but the contents of the database, e.g., what to
+collect, who should collect it and on what format will depend on the
+context of use. However, in order to do anything with DHIS2, you must
+first create meta-data. Meta-data, or data about the data, describes
+what should be collected (data elements and categories), where it should
+be collected (organisation units) and how frequently it should be
+collected (periods). This meta-data needs to be created in the DHIS2
+database before it can be used. This can be done through the user
+interface and requires no programming or in-depth technical skills of
+the software, but does require a good understanding of the processes
+which you are trying to collect data form.</p>
+<p>This section will provide a very quick and brief introduction to DHIS2
+database design and mainly explain the various steps needed to prepare a
+new DHIS2 system for use. How to do each step is explained in other
+chapters, and best practices on design choices will be explained in the
+implementers manual. Here are the steps to follow:</p>
+<p>1. Set up an organisational hierarchy</p>
+<p>2. Define data elements</p>
+<p>3. Define data sets and data entry forms</p>
+<p>4. Define validation rules</p>
+<p>5. Define indicators</p>
+<p>6. Define report tables and design reports</p>
+<p>7. Set up the GIS module</p>
+<p>8. Design charts and customise the dashboard</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-organisational-hierarchy">The organisational hierarchy<a href="#the-organisational-hierarchy" class="hash-link" aria-label="Direct link to The organisational hierarchy" title="Direct link to The organisational hierarchy" translate="no">​</a></h3>
+<p>The organisational hierarchy defines the organisation using the DHIS2,
+the health facilities, administrative areas and other geographical areas
+used in data collection and data analysis. This <em>where</em> dimension to the data is
+defined as a hierarchy with one root unit (e.g., Ministry of Health) and
+any number of levels and nodes below. Each node in this hierarchy is
+called an organisational unit in DHIS2.</p>
+<p>The design of this hierarchy will determine the geographical units of
+analysis available to the users as data is collected and aggregated in
+this structure. There can only be one organisational hierarchy at the
+same time so its structure needs careful consideration. Additional
+hierarchies (e.g. parallel administrative groupings such as &quot;Facility
+ownership&quot;) can be modelled using organisational groups and group sets,
+however the organisational hierarchy is the main vehicle for data
+aggregation on the geographical dimension. Typically national
+organisational hierarchies in public health have 4-6 levels, but any
+number of levels is supported. The hierarchy is built up of parent-child
+relations, e.g. a Country or MoH unit (the root) might have e.g. 8
+parent units (provinces), and each province again ( at level 2) might
+have 10-15 districts as their children. Normally the health facilities
+will be located at the lowest level, but they can also be located at
+higher levels, e.g. national or provincial hospitals, so skewed
+organisational trees are supported (e.g. a leaf node can be positioned
+at level 2 while most other leaf nodes are at level 5).</p>
+<p>Typically there is a geographical hierarchy defined by the health
+system. e.g. where the administrative offices are located (e.g. MoH,
+province, district), but often there are other administrative boundaries
+in the country that might or might not be added, depending on how its
+boundaries will improve data analysis. When designing the hierarchy the
+number of children for any organisational unit may indicate the
+usefulness of the structure, e.g. having one or more 1-1 relationships
+between two levels is not very useful as the values will be the same for
+the child and the parent level. On the other extreme a very high number
+of children in the middle of the hierarchy (e.g. 50 districts in a
+province) might call for an extra level to be added in between to
+increase the usefulness of data analysis. The lowest level, the health
+facilities will often have a large number of children (10-60), but for
+other levels higher up in the hierarchy approx. 5-20 children is
+recommended. Too few or too many children might indicate that a level
+should be removed or added.</p>
+<p>Note that it is quite easy to make changes to the upper levels of the
+hierarchy at a later stage, the only problem is changing organisational
+units that collect data (the leaf nodes), e.g. splitting or merging
+health facilities. Aggregation up the hierarchy is done based on the
+current hierarchy at any time and will always reflect the most recent
+changes to the organisational structure. Refer to the chapter on
+Organisation Units to learn how to create organisational units and to
+build up the hierarchy.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-elements">Data Elements<a href="#data-elements" class="hash-link" aria-label="Direct link to Data Elements" title="Direct link to Data Elements" translate="no">​</a></h3>
+<p>The Data Element is perhaps the most important building block of a DHIS2
+database. It represents the <em>what</em> dimension, it explains what is being
+collected or analysed. In some contexts this is referred to an
+indicator, but in DHIS2 we call this unit of collection and analysis a
+<em>data element</em>. The data element often represents a count of something,
+and its name describes what is being counted, e.g. &quot;BCG doses given&quot; or
+“Malaria cases”. When data is collected, validated, analysed, reported
+or presented, the data elements or expressions built upon data
+elements describes what the data is. As such the data elements
+become important for all aspects of the system and they decide not only
+how data is collected, but more importantly how the data values are
+represented in the database, which again decides how data can be
+analysed and presented.</p>
+<p>It is possible to add more details to this <em>what</em> dimension through the
+disaggregation dimension called data element categories. Some common
+categories are age and gender, but any category can be added by the user
+and linked to specific data elements. The combination of a data
+element&#x27;s name and its assigned category defines the smallest unit of
+collection and analysis available in the system, and hence describes the
+raw data in the database. Aggregations can be done when zooming out of
+this dimension, but no further drill-down is possible, so designing data
+elements and categories define the detail of the analysis available to
+the system (on the <em>what</em> dimension). Changes to data elements and
+categories at a later stage in the process might be complicated as these
+will change the meaning of the data values already captured in the
+database (if any). So this step is one of the more decisive and careful
+steps in the database design process.</p>
+<p>One best practice when designing data elements is to think of data
+elements as a unit of data analysis and not just as a field in the data
+collection form. Each data element lives on its own in the database,
+completely detached from the collection form, and reports and other
+outputs are based on data elements and expressions/formulas composed of
+data elements and not the data collection forms. So the data analysis
+needs should drive the process, and not the look an feel of the data
+collection forms. A simple rule of thumb is that the name of the data
+element must be able to stand on its own and describe the data value
+also outside the context of its collection form. E.g. a data element
+name like &quot;Total referrals&quot; makes sense when looking at it in either the
+&quot;RCH&quot; form or the &quot;OPD&quot; form, but on its own it does not uniquely
+describe the phenomena (who are being referred?), and should in stead be
+called &quot;Total referrals from Maternity&quot; or &quot;Total referrals from OPD&quot;.
+Two different data elements with different meanings, although the field
+on the paper form might only say &quot;Total referrals&quot; since the user of the
+form will always know where these referrals come from. In a database or
+a repository of data elements this context is no longer valid and
+therefore the names of the data elements become so important in
+describing the data.</p>
+<p>Common properties of data elements can be modelled through what is
+called data element groups. The groups are completely flexible in the
+sense that they are defined by the user, both their names and their
+memberships. Groups are useful both for browsing and presenting related
+data, but can also be used to aggregate data elements together. Groups
+are loosely coupled to data elements and not tied directly to the data
+values which means they can be modified and added at any point in time
+without interfering with the raw data.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="datasets-and-data-entry-forms">Datasets and data entry forms<a href="#datasets-and-data-entry-forms" class="hash-link" aria-label="Direct link to Datasets and data entry forms" title="Direct link to Datasets and data entry forms" translate="no">​</a></h3>
+<p>All data entry in DHIS2 is organised through the use of Datasets. A
+Dataset is a collection of data elements grouped together for data
+collection, and in the case of distributed installs they also define
+chunks of data for export and import between instances of DHIS2 (e.g.
+from a district office local installation to a national server).
+Datasets are not linked directly to the data values, only through their
+data elements and frequencies, and as such a dataset can be modified,
+deleted or added at any point in time without affecting the raw data
+already captured in the system, but such changes will of course affect
+how new data will be collected.</p>
+<p>A dataset has a period type which controls the data collection
+frequency, which can be daily, weekly, monthly, quarterly, six-monthly,
+or yearly. Both which data elements to include in the dataset and the
+period type is defined by the user, together with a name, short name,
+and code.</p>
+<p>In order to use a dataset to collect data for a specific orgunit you
+must assign the orgunit to the dataset, and this mechanism controls
+which orgunits that can use which datasets, and at the same time defines
+the target values for data completeness (e.g. how many health facilities
+in a district expected to submit RCH data every month).</p>
+<p>A data element can belong to multiple datasets, but this requires
+careful thinking as it may lead to overlapping and inconstant data being
+collected if e.g. the datasets are given different frequencies and are
+used by the same orgunits.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-entry-forms">Data entry forms<a href="#data-entry-forms" class="hash-link" aria-label="Direct link to Data entry forms" title="Direct link to Data entry forms" translate="no">​</a></h4>
+<p>Once you have assigned a dataset to an orgunit that dataset will be made
+available in Data Entry (under Services) for the orgunits you have
+assigned it to and for the valid periods according to the dataset&#x27;s
+period type. A default data entry form will then be shown, which is
+simply a list of the data elements belonging to the dataset together
+with a column for inputting the values. If your dataset contains data
+elements with categories such as age groups or gender, then additional
+columns will be automatically generated in the default form based on the
+categories. In addition to the default list-based data entry form there
+are two more alternatives, the section-based form and the custom form.</p>
+<h5 class="anchor anchorTargetStickyNavbar_Vzrq" id="section-forms">Section forms<a href="#section-forms" class="hash-link" aria-label="Direct link to Section forms" title="Direct link to Section forms" translate="no">​</a></h5>
+<p>Section forms allow for a bit more flexibility when it comes to using
+tabular forms and are quick and simple to design. Often your data entry
+form will need multiple tables with subheadings, and sometimes you need
+to disable (grey out) a few fields in the table (e.g. some categories do
+not apply to all data elements), both of these functions are supported
+in section forms. After defining a dataset you can define it&#x27;s sections
+with subsets of data elements, a heading and possible grey fields i the
+section&#x27;s table. The order of sections in a dataset can also be defined.
+In Data Entry you can now start using the Section form (should appear
+automatically when sections are available for the selected dataset). You
+can switch between default and section forms in the top right corner of
+the data entry screen. Most tabular data entry forms should be possible
+to do with sections forms, and the more you can utilise the section
+forms (or default forms) the easier it is for you. If these two types of
+forms are not meeting your requirements then the third option is the
+completely flexible, although more time-consuming, custom data entry
+forms.</p>
+<h5 class="anchor anchorTargetStickyNavbar_Vzrq" id="custom-forms">Custom Forms<a href="#custom-forms" class="hash-link" aria-label="Direct link to Custom Forms" title="Direct link to Custom Forms" translate="no">​</a></h5>
+<p>When the form you want to design is too complicated for the default or
+section forms then your last option is to use a custom form. This takes
+more time, but gives you full flexibility in term of the design. In
+DHIS2 there is a built in HTML editor (FcK Editor) for the form designer
+and you can either design the form in the UI or paste in your HTML
+directly using the Source window in the editor. In the custom form you
+can insert static text or data fields (linked to data elements +
+category) in any position on the form and you have complete freedom to
+design the layout of the form. Once a custom form has been added to a
+dataset it will be available in data entry and used automatically. You
+can switch back to default and section (if exists) forms in the top
+right corner of the data entry screen.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="validation-rules">Validation rules<a href="#validation-rules" class="hash-link" aria-label="Direct link to Validation rules" title="Direct link to Validation rules" translate="no">​</a></h3>
+<p>Once you have set up the data entry part of the system and started to
+collect data then there is time to define data quality checks that help
+to improve the quality of the data being collected. You can add as many
+validation rules as you like and these are composed of left and right
+side expressions that again are composed of data elements, with an
+operator between the two sides. Typical rules are comparing subtotals to
+totals of something. E.g. if you have two data elements &quot;HIV tests
+taken&quot; and &quot;HIV test result positive&quot; then you know that in the same
+form (for the same period and organisational unit) the total number of
+tests must always be equal or higher than the number of positive tests.
+These rules should be absolute rules meaning that they are
+mathematically correct and not just assumptions or &quot;most of the time
+correct&quot;. The rules can be run in data entry, after filling each form,
+or as a more batch like process on multiple forms at the same time, e.g.
+for all facilities for the previous reporting month. The results of the
+tests will list all violations and the detailed values for each side of
+the expression where the violation occurred to make it easy to go back
+to data entry and correct the values.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="indicators">Indicators<a href="#indicators" class="hash-link" aria-label="Direct link to Indicators" title="Direct link to Indicators" translate="no">​</a></h3>
+<p>Indicators represent perhaps the most powerful data analysis feature of
+the DHIS2. While data elements represent the raw data (counts) being
+collected the indicators represent formulas providing coverage rates,
+incidence rates, ratios and other formula-based units of analysis. An
+indicator is made up of a factor (e.g. 1, 100, 100, 100 000), a
+numerator and a denominator, the two latter are both expressions based
+on one or more data elements. E.g. the indicator &quot;BCG coverage &lt;1 year&quot;
+is defined a formula with a factor 100, a numerator (&quot;BCG doses given to
+children under 1 year&quot;) and a denominator (&quot;Target population under 1
+year&quot;). The indicator &quot;DPT1 to DPT3 drop out rate&quot; is a formula of 100 %
+x (&quot;DPT1 doses given&quot;- &quot;DPT3 doses given&quot;) / (&quot;DPT1 doses given&quot;).</p>
+<p>Most report modules in DHIS2 support both data elements and indicators
+and you can also combine these in custom reports, but the important
+difference and strength of indicators versus raw data (data element&#x27;s
+data values) is the ability to compare data across different
+geographical areas (e.g. highly populated vs rural areas) as the target
+population can be used in the denominator.</p>
+<p>Indicators can be added, modified and deleted at any point in time
+without interfering with the data values in the database.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="report-tables-and-reports">Report tables and reports<a href="#report-tables-and-reports" class="hash-link" aria-label="Direct link to Report tables and reports" title="Direct link to Report tables and reports" translate="no">​</a></h3>
+<p>Standard reports in DHIS2 are a very flexible way of presenting the data
+that has been collected. Data can be aggregated by any organisational
+unit or orgunit level, by data element, by indicators, as well as over
+time (e.g. monthly, quarterly, yearly). The report tables are custom
+data sources for the standard reports and can be flexibly defined in the
+user interface and later accessed in external report designers such as
+iReport or through custom HTML reports. These report designs can then be
+set up as easily accessible one-click reports with parameters so that
+the users can run the same reports e.g. every month when new data is
+entered, and also be relevant to users at all levels as the
+organisational unit can be selected at the time of running the report.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="gis">GIS<a href="#gis" class="hash-link" aria-label="Direct link to GIS" title="Direct link to GIS" translate="no">​</a></h3>
+<p>In the integrated GIS module you can easily display your data on maps,
+both on polygons (areas) and as points (health facilities), and either
+as data elements or indicators. By providing the coordinates of your
+organisational units to the system you can quickly get up to speed with
+this module. See the GIS section for details on how to get started.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="charts-and-dashboard">Charts and dashboard<a href="#charts-and-dashboard" class="hash-link" aria-label="Direct link to Charts and dashboard" title="Direct link to Charts and dashboard" translate="no">​</a></h3>
+<p>On of the easiest way to display your indicator data is through charts.
+An easy to use chart dialogue will guide you through the creation of
+various types of charts with data on indicators, organisational units
+and periods of your choice. These charts can easily be added to one of
+the four chart sections on your dashboard and there be made easily
+available right after log in. Make sure to set the dashboard module as
+the start module in user settings.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Implementation Guide/admin/about-data-dimensions"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">About data dimensions</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Implementation Guide/admin/about-sharing-of-objects"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">About Sharing of Objects</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#using-the-dhis2-demo-server" class="table-of-contents__link toc-highlight">Using the DHIS2 demo server</a></li><li><a href="#spinning-up-a-local-dhis2-instance-using-d2-cluster" class="table-of-contents__link toc-highlight">Spinning up a local DHIS2 instance using D2 Cluster</a><ul><li><a href="#running-d2-cluster" class="table-of-contents__link toc-highlight">Running D2 Cluster</a></li><li><a href="#downloading-and-installing-the-server-version" class="table-of-contents__link toc-highlight">Downloading and installing the server version</a></li></ul></li><li><a href="#logging-on-to-dhis2" class="table-of-contents__link toc-highlight">Logging on to DHIS2</a></li><li><a href="#logging-out-of-dhis2" class="table-of-contents__link toc-highlight">Logging out of DHIS2</a></li><li><a href="#quick-intro-to-designing-a-dhis2-database" class="table-of-contents__link toc-highlight">Quick intro to designing a DHIS2 database</a><ul><li><a href="#the-organisational-hierarchy" class="table-of-contents__link toc-highlight">The organisational hierarchy</a></li><li><a href="#data-elements" class="table-of-contents__link toc-highlight">Data Elements</a></li><li><a href="#datasets-and-data-entry-forms" class="table-of-contents__link toc-highlight">Datasets and data entry forms</a></li><li><a href="#validation-rules" class="table-of-contents__link toc-highlight">Validation rules</a></li><li><a href="#indicators" class="table-of-contents__link toc-highlight">Indicators</a></li><li><a href="#report-tables-and-reports" class="table-of-contents__link toc-highlight">Report tables and reports</a></li><li><a href="#gis" class="table-of-contents__link toc-highlight">GIS</a></li><li><a href="#charts-and-dashboard" class="table-of-contents__link toc-highlight">Charts and dashboard</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="#" class="footer__link-item">DHIS2 Community</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="#" class="footer__link-item">Blog</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 EHMIS (IHIMS Nepal). Built with Amakomaya Nepal.</div></div></div></footer></div>
+</body>
+</html>
